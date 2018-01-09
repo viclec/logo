@@ -15,8 +15,27 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GUI_demo\hy352_gui.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUI_demo\pirulen rg.ttf">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="GUI_demo\README.md">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="GUI_demo\turtle.png">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GUI_demo\hy352_gui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

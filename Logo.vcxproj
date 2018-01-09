@@ -63,7 +63,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GUI_demo\hy352_gui.cpp" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GUI_demo\hy352_gui.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GUI_demo\pirulen rg.ttf" />
+    <None Include="GUI_demo\README.md" />
+    <None Include="GUI_demo\turtle.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
