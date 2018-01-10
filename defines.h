@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include "./variable.h"
+#include "./function.h"
 #include "./statement.h"
 #include <string>
 using namespace ::std;
@@ -20,6 +22,9 @@ vector<Statement> statements;
 #define ITEM
 #define SETITEM
 
+/*LIST ARGUMENTS*/
+#define ARG(iterator) args[i-1];
+
 /*TURTLE MOVEMENT*/
 #define SUM Sum<Variable>()
 //#define DIFFERENCE
@@ -30,21 +35,21 @@ vector<Statement> statements;
 #define ASSIGN Assign
 
 /*STATEMENT METHODS*/
-#define DO ){ statements.push_back(Statement(statementType));
+#define DO ){ statements.size() > 0 && statements.back().getLineNumber() == __LINE__ ? statements.back().incrementRepCount() : statements.push_back(Statement(statementType, __LINE__));
 #define END } statements.pop_back();
 
 /*IF/ELIF STATEMENTS*/
-#define IF statementType="if";if(
+#define IF statementType = "if"; if(
 #define ELIF } else if(
 
 /*REPEAT WHILE*/
-#define REPEAT statementType="repeat"; for(int i = 0; i <
+#define REPEAT statementType = "repeat"; //for(int i = 0; i <
 #define TIMES ; i++
 #define WHILE
-#define REPCOUNT
+#define REPCOUNT statements.back().getRepCount();
 
 /*FOREACH*/
-#define FOREACH statementType="repeat";
+#define FOREACH statementType = "foreach";
 
 /*ELEM SHOW*/
 #define ELEM
@@ -74,8 +79,9 @@ vector<Statement> statements;
 
 /*FUNCTIONS*/
 #define TO void
-#define WITH
-#define FSTART {
+#define WITH (
+//#define WITH(...) functions.push_back(Function(#__VA_ARGS__));
+#define FSTART ){
 #define FEND }
 #define RETURN return
 #define CALL ()
