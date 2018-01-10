@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
 #include "./variable.h"
-#include "./function.h"
 #include "./statement.h"
+#include "./GUI_demo/hy352_gui.h"
 #include <string>
 using namespace ::std;
 
@@ -19,8 +19,8 @@ vector<Statement> statements;
 #define SENTENCE
 
 /*ARRAY ITEMS*/
-#define ITEM
-#define SETITEM
+#define ITEM(iterators, arr)
+#define SETITEM(iterators, arr, newValue)
 
 /*LIST ARGUMENTS*/
 #define ARG(iterator) args[i-1];
@@ -56,31 +56,30 @@ vector<Statement> statements;
 #define SHOW
 
 /*BOOL OPERATORS*/
-#define AND
-#define OR
-#define NOT
+#define AND(leftCondition, rightCondition) leftCondition && rightCondition
+#define OR(leftCondition, rightCondition) leftCondition || rightCondition
+#define NOT(condition) !condition
 
 /*TURTLE MOVEMENTS AND METHODS*/
-#define FORWARD
-#define BACK
-#define RIGHT
-#define LEFT
-#define CENTER
-#define SETXY
-#define CIRCLE
-#define PRINT_WORD
+#define FORWARD turtle_mv_forward
+#define BACK turtle_mv_backward
+#define RIGHT turtle_rotate
+#define LEFT turtle_rotate
+#define CENTER turtle_go_to_center
+#define SETXY turtle_go_to_position
+#define CIRCLE turtle_draw_circle
+#define PRINT_WORD turtle_draw_label
 
 /*TURTLE MOVEMENT*/
-#define SETPENCOLOR
-#define SETSCREENCOLOR
-#define SETPENSIZE
-#define PENDOWN
-#define PENUP
+#define SETPENCOLOR set_pen_color
+#define SETSCREENCOLOR set_screen_color
+#define SETPENSIZE set_pen_thickness
+#define PENDOWN pen_down();
+#define PENUP pen_up();
 
 /*FUNCTIONS*/
 #define TO void
 #define WITH (
-//#define WITH(...) functions.push_back(Function(#__VA_ARGS__));
 #define FSTART ){
 #define FEND }
 #define RETURN return
