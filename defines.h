@@ -21,13 +21,13 @@ vector<Statement> statements;
 #define SETITEM
 
 /*TURTLE MOVEMENT*/
-#define SUM
+#define SUM Sum<Variable>()
 //#define DIFFERENCE
-#define MINUS
-#define PRODUCT
-#define QUOTIENT
-#define MODULO
-#define ASSIGN
+#define MINUS Minus
+#define PRODUCT Product
+#define QUOTIENT Quotient
+#define MODULO Modulo
+#define ASSIGN Assign
 
 /*STATEMENT METHODS*/
 #define DO ){ statements.push_back(Statement(statementType));
@@ -79,3 +79,50 @@ vector<Statement> statements;
 #define FEND }
 #define RETURN return
 #define CALL ()
+
+/*
+template <typename Var>
+Var Sum(const Var v) {
+	return v;
+}
+
+template <typename Var, typename... List>
+Var Sum(Var v, List... l) {
+	return v + Sum(l...);
+}
+
+template <typename Var>
+Var Difference(Var v1, Var v2) {
+	return v1 - v2;
+}
+
+template <typename Var>
+Var Minus(Var v) {
+	return v * (-1);
+}
+
+template <typename Var>
+Var Product(Var v1, Var v2) {
+	return v1 * v2;
+}
+
+template <typename Var, typename... List>
+Var Product(Var v, List... l) {
+	return v * Product(l...);
+}
+
+template <typename Var>
+Var Quotient(Var v1, Var& v2) {
+	return v1 / v2;
+}
+
+template <typename Var>
+Var Modulo(Var v1, Var v2) {
+	return v1 % v2;
+}
+
+template <typename Var>
+Var Assign(Var v1, Var v2) {
+	return v1 = v2;
+}
+*/
