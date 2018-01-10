@@ -37,5 +37,8 @@
     <ClInclude Include="GUI_demo\hy352_gui.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="variable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
