@@ -10,7 +10,7 @@ string statementType;
 vector<Statement> statements;
 
 /*VARIABLES*/
-#define MAKE variable;
+#define MAKE Variable
 #define NUMBER false?-1
 #define WORD false?""
 #define LIST 
@@ -34,6 +34,8 @@ vector<Statement> statements;
 #define MODULO Modulo
 #define ASSIGN Assign
 
+#define __NL__ ;
+
 /*STATEMENT METHODS*/
 #define DO ){ statements.size() > 0 && statements.back().getLineNumber() == __LINE__ ? statements.back().incrementRepCount() : statements.push_back(Statement(statementType, __LINE__));
 #define END } statements.pop_back();
@@ -41,9 +43,10 @@ vector<Statement> statements;
 /*IF/ELIF STATEMENTS*/
 #define IF statementType = "if"; if(
 #define ELIF } else if(
+#define ELSE } else if(true){ statements.size() > 0 && statements.back().getLineNumber() == __LINE__ ? statements.back().incrementRepCount() : statements.push_back(Statement(statementType, __LINE__));
 
 /*REPEAT WHILE*/
-#define REPEAT statementType = "repeat"; //for(int i = 0; i <
+#define REPEAT statementType = "repeat"; for(int i = 0;
 #define TIMES ; i++
 #define WHILE
 #define REPCOUNT statements.back().getRepCount();
@@ -82,8 +85,8 @@ vector<Statement> statements;
 #define WITH (
 #define FSTART ){
 #define FEND }
-#define RETURN return
-#define CALL ()
+#define RETURN return;
+#define CALL(...) (__VA_ARGS__)
 
 /*
 template <typename Var>
