@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GUI_demo\hy352_gui.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -38,6 +35,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="variable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="defines.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="statement.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

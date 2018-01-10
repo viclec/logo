@@ -1,5 +1,8 @@
 #include <stdio.h>
+#include <vector>
 #include <allegro5/allegro.h>
+#include "./defines.h"
+using namespace ::std;
 
 int main(int argc, char **argv)
 {
@@ -15,6 +18,8 @@ int main(int argc, char **argv)
       fprintf(stderr, "failed to create display!\n");
       return -1;
    }
+	
+	printf("HELLO");
 
    al_clear_to_color(al_map_rgb(0,0,0));
    
@@ -23,6 +28,7 @@ int main(int argc, char **argv)
    al_rest(10.0);
 
    al_destroy_display(display);
+
 
    return 0;
 }

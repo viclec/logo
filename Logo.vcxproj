@@ -63,11 +63,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="GUI_demo\hy352_gui.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="defines.h" />
     <ClInclude Include="GUI_demo\hy352_gui.h" />
+    <ClInclude Include="statement.h" />
     <ClInclude Include="variable.h" />
   </ItemGroup>
   <ItemGroup>
