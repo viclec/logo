@@ -21,17 +21,13 @@ int main(int argc, char **argv)
 
    MAKE number = BOOLEAN:true;
 
-   if(number == number){
+   IF number == BOOLEAN:false DO
 	   cout << "True";
-   }else{
+   ELIF number == NUMBER:21 DO
 	   cout << "False";
-   }
-
-   if(number == 21){
-	   cout << "Trueaa";
-   }else{
-	   cout << "False";
-   }
+   ELSE
+	   cout << "ELSE";
+   END
 
    al_clear_to_color(al_map_rgb(0,0,0));
    
