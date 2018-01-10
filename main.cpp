@@ -18,8 +18,20 @@ int main(int argc, char **argv)
       fprintf(stderr, "failed to create display!\n");
       return -1;
    }
-	
-	printf("HELLO");
+
+   MAKE number = BOOLEAN:true;
+
+   if(number == number){
+	   cout << "True";
+   }else{
+	   cout << "False";
+   }
+
+   if(number == 21){
+	   cout << "Trueaa";
+   }else{
+	   cout << "False";
+   }
 
    al_clear_to_color(al_map_rgb(0,0,0));
    
