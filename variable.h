@@ -20,24 +20,26 @@ public:
 		return (number == dbl && number != NULL);
 	}
 
-	inline bool operator==(Variable* rhs) {
-		return (number == rhs->number && number != NULL);
+	inline bool operator==(Variable &rhs) {
+		return (number == rhs.number && number != NULL);
 	}
 
-	Variable* operator = (Variable a) {
-		return &a;
+	Variable& operator = (Variable &rhs) {
+		if (this == &rhs)
+			return *this;
+		return rhs;
 	}
 
-	Variable* operator = (char* a) {
-		return new Variable(a);
+	Variable& operator = (char* a) {
+		return Variable(a);
 	}
 
-	Variable* operator = (int a) {
-		return new Variable(a);
+	Variable& operator = (int a) {
+		return Variable(a);
 	}
 
-	Variable* operator = (double a) {
-		return new Variable(a);
+	Variable& operator = (double a) {
+		return Variable(a);
 	}
 
 	/*
@@ -55,3 +57,4 @@ public:
 	*/
 
 };
+
