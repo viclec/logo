@@ -10,7 +10,7 @@ string statementType;
 vector<Statement> statements;
 
 /*VARIABLES*/
-#define MAKE Variable*
+#define MAKE Variable
 #define NUMBER Variable()=false?-1
 #define WORD Variable()=false?""
 #define BOOLEAN Variable()=false?0
