@@ -19,8 +19,11 @@ int main(int argc, char **argv)
       return -1;
    }
 
-   MAKE number = BOOLEAN:true;
+   MAKE number = NUMBER:31;
+   MAKE string = WORD:"sassy";
+   MAKE boolean = BOOLEAN:true;
 
+   /*
    IF number == BOOLEAN:false DO
 	   cout << "True";
    ELIF number == NUMBER:21 DO
@@ -28,6 +31,7 @@ int main(int argc, char **argv)
    ELSE
 	   cout << "ELSE";
    END
+   */
 
    al_clear_to_color(al_map_rgb(0,0,0));
    
