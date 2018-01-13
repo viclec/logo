@@ -10,12 +10,12 @@ string statementType;
 vector<Statement> statements;
 
 /*VARIABLES*/
-#define MAKE Variable
-#define NUMBER false?-1
-#define WORD false?""
+#define MAKE Variable*
+#define NUMBER Variable()=false?-1
+#define WORD Variable()=false?""
+#define BOOLEAN Variable()=false?0
 #define LIST 
-#define ARRAY
-#define BOOLEAN false?0
+#define ARRAY Variable
 #define SENTENCE
 
 /*ARRAY ITEMS*/
@@ -88,7 +88,6 @@ vector<Statement> statements;
 #define RETURN return;
 #define CALL(...) (__VA_ARGS__)
 
-/*
 template <typename Var>
 Var Sum(const Var v) {
 	return v;
@@ -133,4 +132,3 @@ template <typename Var>
 Var Assign(Var v1, Var v2) {
 	return v1 = v2;
 }
-*/
