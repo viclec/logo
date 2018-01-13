@@ -1,26 +1,57 @@
-#include <string>
-
 class Variable{	//TODO check class templates
 private:
-	std::string word;
+	char* word;
 	double number;
-	bool boolean;
 public:
-	Variable(std::string word) : word(word){};
+	Variable() {};
+	Variable(char* word) : word(word){};
 	Variable(double number) : number(number){};
 	Variable(int number) : number(number){};
-	Variable(bool boolean) : boolean(boolean){};
 
-	friend std::ostream& operator<< (std::ostream& stream, const Variable& var) {
-		std::string s;
-//		s = std::to_string(static_cast<long long>(number));
-		return stream << s;
-    }
-
-	inline bool operator==(const Variable& rhs) {
-		return (number == rhs.number && number != NULL) || (boolean == rhs.boolean && boolean);
+	inline bool operator==(char* string) {
+		return (word == string && word != NULL);
 	}
 
+	inline bool operator==(int integer) {
+		return (number == integer && number != NULL);
+	}
+
+	inline bool operator==(double dbl) {
+		return (number == dbl && number != NULL);
+	}
+
+	inline bool operator==(Variable* rhs) {
+		return (number == rhs->number && number != NULL);
+	}
+
+	Variable* operator = (Variable a) {
+		return &a;
+	}
+
+	Variable* operator = (char* a) {
+		return new Variable(a);
+	}
+
+	Variable* operator = (int a) {
+		return new Variable(a);
+	}
+
+	Variable* operator = (double a) {
+		return new Variable(a);
+	}
+
+	/*
+	template<typename var>
+	Variable* operator = (var a){ 
+		//if(&other == this)
+        //    return *this;
+	   return new Variable(a);
+	}
+
+	template<typename var>
+	inline Variable& operator=(var a) {
+		return Variable(a);
+	}
+	*/
+
 };
-
-
