@@ -2,59 +2,84 @@ class Variable{	//TODO check class templates
 private:
 	char* word;
 	double number;
+	bool boolean;
+	//LIST
 public:
 	Variable() {};
 	Variable(char* word) : word(word){};
 	Variable(double number) : number(number){};
-	Variable(int number) : number(number){};
+	Variable(int number) : number(number) {};
+	Variable(bool boolean) : boolean(boolean){};
 
-	inline bool operator==(char* string) {
-		return (word == string && word != NULL);
+	bool operator==(char* string) {
+		return (strcmp(word, string) == 0 && word != NULL);
 	}
 
-	inline bool operator==(int integer) {
+	bool operator==(int integer) {
 		return (number == integer && number != NULL);
 	}
 
-	inline bool operator==(double dbl) {
+	bool operator==(double dbl) {
 		return (number == dbl && number != NULL);
 	}
 
-	inline bool operator==(Variable &rhs) {
+	bool operator==(Variable rhs) {
 		return (number == rhs.number && number != NULL);
 	}
 
-	Variable& operator = (Variable &rhs) {
-		if (this == &rhs)
-			return *this;
-		return rhs;
+	Variable& Variable::operator = (Variable &v) {
+		return v;
 	}
 
-	Variable& operator = (char* a) {
+	Variable& Variable::operator = (char* a) {
 		return Variable(a);
 	}
 
-	Variable& operator = (int a) {
+	Variable& Variable::operator = (int a) {
 		return Variable(a);
 	}
 
-	Variable& operator = (double a) {
+	Variable& Variable::operator = (double a) {
 		return Variable(a);
 	}
 
 	/*
-	template<typename var>
-	Variable* operator = (var a){ 
-		//if(&other == this)
-        //    return *this;
-	   return new Variable(a);
+	Variable Variable::operator [](int i) const {
+		return list[i];
 	}
 
-	template<typename var>
-	inline Variable& operator=(var a) {
-		return Variable(a);
+	Variable & Variable::operator [](int i) {
+		return list[i];
 	}
 	*/
 
+	double getNumber() {
+		return number;
+	}
+
+	char* getWord() {
+		return word;
+	}
+
+	bool getBoolean() {
+		return boolean;
+	}
+
 };
+
+bool operator==(int number, Variable rhs) {
+	return (number == rhs.getNumber() && number != NULL);
+}
+
+bool operator==(double number, Variable rhs) {
+	return (number == rhs.getNumber() && number != NULL);
+}
+
+bool operator==(bool boolean, Variable rhs) {
+	return (boolean == rhs.getBoolean() && boolean != NULL);
+}
+
+bool operator==(char* word, Variable rhs) {
+	return (strcmp(word, rhs.getWord())==0 && word != NULL);
+}
 
