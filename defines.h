@@ -13,29 +13,29 @@ vector<Statement> statements;
 //List funcArgs;
 
 /*VARIABLES*/
-#define MAKE Variable
+#define MAKE ;Variable
 #define NUMBER Variable()=false?-1
 #define WORD Variable()=false?""
 #define BOOLEAN Variable()=false?0
 #define LIST List()=
 #define ARRAY List()=
-#define SENTENCE
+#define SENTENCE ;
 
 /*ARRAY ITEMS*/
-#define ITEM(iterators, arr)
-#define SETITEM(iterators, arr, newValue)
+#define ITEM(iterators, arr) ;
+#define SETITEM(iterators, arr, newValue) ;
 
 /*LIST ARGUMENTS*/
-#define ARG(iterator) args[i-1];
+#define ARG(iterator) ;args[i-1];
 
 /*TURTLE MOVEMENT*/
-#define SUM Sum<Variable>()
+#define SUM ;Sum<Variable>()
 //#define DIFFERENCE
-#define MINUS Minus<Variable>
-#define PRODUCT Product<Variable>
-#define QUOTIENT Quotient<Variable>
-#define MODULO Modulo<Variable>
-#define ASSIGN Assign<Variable>
+#define MINUS ;Minus<Variable>
+#define PRODUCT ;Product<Variable>
+#define QUOTIENT ;Quotient<Variable>
+#define MODULO ;Modulo<Variable>
+#define ASSIGN ;Assign<Variable>
 
 #define __NL__ ;
 
@@ -44,18 +44,18 @@ vector<Statement> statements;
 #define END } statements.pop_back();
 
 /*IF/ELIF STATEMENTS*/
-#define IF statements.push_back(Statement("if", __LINE__)); if(
+#define IF ;statements.push_back(Statement("if", __LINE__)); if(
 #define ELIF } else if(
 #define ELSE } else if(true){
 
 /*REPEAT WHILE*/
-#define REPEAT statements.push_back(Statement("repeat", __LINE__)); for(statements.back().initRepCount();
+#define REPEAT ;statements.push_back(Statement("repeat", __LINE__)); for(statements.back().initRepCount();
 #define TIMES != statements.back().getRepCount(); statements.back().incrementRepCount()
 #define WHILE false?false:
-#define REPCOUNT statements.back().getRepCount();
+#define REPCOUNT ;statements.back().getRepCount();
 
 /*FOREACH*/
-#define FOREACH statements.push_back(Statement("foreach", __LINE__);  for(auto i = 0;
+#define FOREACH ;statements.push_back(Statement("foreach", __LINE__);  for(auto i = 0;
 
 /*ELEM SHOW*/
 #define ELEM
