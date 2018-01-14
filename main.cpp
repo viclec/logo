@@ -19,11 +19,11 @@ int main(int argc, char **argv)
       return -1;
    }
 
-   MAKE number = NUMBER:31;
-   MAKE string = WORD:"sassy";
-   MAKE boolean = BOOLEAN:TRUE;
+   MAKE number = NUMBER:31
+   MAKE string = WORD:"sassy"
+   MAKE boolean = BOOLEAN:true
 
-   //MAKE list = LIST[NUMBER:12, NUMBER : 0, NUMBER : 0]
+	   //MAKE list = LIST{ NUMBER:12, NUMBER : 0, NUMBER : 0 }
 
    IF string == (WORD:"feaf") DO	//TODO string comparisson 
 	   cout << "True";
