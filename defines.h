@@ -10,7 +10,7 @@ using namespace ::std;
 
 string statementType;
 vector<Statement> statements;
-List funcArgs;
+//List funcArgs;
 
 /*VARIABLES*/
 #define MAKE Variable
@@ -18,7 +18,7 @@ List funcArgs;
 #define WORD Variable()=false?""
 #define BOOLEAN Variable()=false?0
 #define LIST List()=
-#define ARRAY Variable
+#define ARRAY List()=
 #define SENTENCE
 
 /*ARRAY ITEMS*/
