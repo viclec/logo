@@ -24,6 +24,7 @@
     <None Include="GUI_demo\turtle.png">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GUI_demo\hy352_gui.h">
@@ -50,6 +51,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI_demo\hy352_gui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
