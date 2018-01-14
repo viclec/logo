@@ -3,7 +3,7 @@ private:
 	char* word;
 	double number;
 	bool boolean;
-	//LIST
+	//vector<Variable> list;
 public:
 	Variable() {};
 	Variable(char* word) : word(word){};
@@ -94,6 +94,10 @@ public:
 	Variable& Variable::operator = (Variable &v) {
 		return v;
 	}
+
+	//Variable& Variable::operator = (List &l) {
+	//	this->list = l;
+	//}
 
 	Variable& Variable::operator = (char* a) {
 		return Variable(a);
