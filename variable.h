@@ -99,16 +99,16 @@ public:
 	//	this->list = l;
 	//}
 
-	Variable& Variable::operator = (char* a) {
-		return Variable(a);
+	Variable* Variable::operator = (char* a) {
+		return new Variable(a);
 	}
 
-	Variable& Variable::operator = (int a) {
-		return Variable(a);
+	Variable* Variable::operator = (int a) {
+		return new Variable(a);
 	}
 
-	Variable& Variable::operator = (double a) {
-		return Variable(a);
+	Variable* Variable::operator = (double a) {
+		return new Variable(a);
 	}
 
 	double getNumber() {
