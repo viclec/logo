@@ -36,7 +36,7 @@ int main(int argc, char **argv)
    END
 
 	   MAKE S = LIST[number, string];
-
+   MAKE MAN = LIST[S, string];
 	REPEAT 5 TIMES DO
 	std::cout << "repeat";
 	END
