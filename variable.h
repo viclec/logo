@@ -4,6 +4,7 @@ private:
 	double number;
 	bool boolean;
 	std::vector<Variable> list;
+	std::string type;
 public:
 	Variable() {};
 	Variable(char* word) : word(word) {};
@@ -99,16 +100,22 @@ public:
 	//	this->list = l;
 	//}
 
-	Variable* Variable::operator = (char* a) {
-		return new Variable(a);
+	Variable& Variable::operator = (char* a) {
+		this->word = a;
+		this->type = "word";
+		return *this;
 	}
 
-	Variable* Variable::operator = (int a) {
-		return new Variable(a);
+	Variable& Variable::operator = (int a) {
+		this->number = a;
+		this->type = "number";
+		return *this;
 	}
 
-	Variable* Variable::operator = (double a) {
-		return new Variable(a);
+	Variable& Variable::operator = (double a) {
+		this->number = a;
+		this->type = "number";
+		return *this;
 	}
 
 	double getNumber() {
