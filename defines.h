@@ -138,6 +138,16 @@ Var Assign(Var v1, Var v2) {
 	return v1 = v2;
 }
 
+/*
+template <typename Var, typename... List>
+Var Sentence(Var v, List... l) {
+	
+
+	Sentence(l...);
+	return;
+}
+*/
+
 /* ################################################ */
 
 std::vector<Variable>* new_list() {
