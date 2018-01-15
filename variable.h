@@ -222,5 +222,4 @@ bool operator>(char* word, Variable rhs) {
 	return (strcmp(word, rhs.getWord()) > 0 && word != NULL);
 }
 
-
 // ####################   not rdy   ####################   

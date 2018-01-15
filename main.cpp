@@ -20,11 +20,12 @@ int main(int argc, char **argv)
    }
 
    MAKE number = NUMBER:31
+
 	   MAKE string = WORD : "sassy"
 	   MAKE boolean = BOOLEAN : true
 
 	   //MAKE list = LIST{ NUMBER:12, NUMBER : 0, NUMBER : 0 }
-	  MAKE list = LIST[number, string]
+
 
    IF string == (WORD:"feaf") DO	//TODO string comparisson 
 	   cout << "True";
@@ -33,7 +34,6 @@ int main(int argc, char **argv)
    ELSE
 	   cout << "ELSE";
    END
-
 
 	   MAKE S = LIST[number, string];
 
