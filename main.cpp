@@ -35,7 +35,8 @@ int main(int argc, char **argv)
 	   cout << "ELSE";
    END
 
-	   MAKE S = LIST[number, string];
+	   MAKE S = LIST[number, string, NUMBER: 321, NUMBER: 432987, WORD: "MANOUSOS"];
+   MAKE MAN = LIST[S, number];
 
 	REPEAT 5 TIMES DO
 	std::cout << "repeat";
