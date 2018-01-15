@@ -19,19 +19,28 @@ int main(int argc, char **argv)
       return -1;
    }
 
-   MAKE number = NUMBER:31;
-   MAKE string = WORD:"sassy";
-   MAKE boolean = BOOLEAN:true;
+   MAKE number = NUMBER:31
+	   MAKE string = WORD : "sassy"
+	   MAKE boolean = BOOLEAN : true
 
-   /*
-   IF number == BOOLEAN:false DO
+	   //MAKE list = LIST{ NUMBER:12, NUMBER : 0, NUMBER : 0 }
+	  MAKE list = LIST[number, string]
+
+   IF string == (WORD:"feaf") DO	//TODO string comparisson 
 	   cout << "True";
-   ELIF number == NUMBER:21 DO
+   ELIF number == (NUMBER:31) DO
 	   cout << "False";
    ELSE
 	   cout << "ELSE";
    END
-   */
+
+
+	   MAKE S = LIST[number, string];
+
+	REPEAT 5 TIMES DO
+	std::cout << "repeat";
+	END
+	
 
    al_clear_to_color(al_map_rgb(0,0,0));
    

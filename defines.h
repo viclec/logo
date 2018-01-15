@@ -3,56 +3,59 @@
 #include "./variable.h"
 #include "./statement.h"
 #include "./GUI_demo/hy352_gui.h"
+#include "./move.h"
+#include "./list.h"
 #include <string>
 using namespace ::std;
 
 string statementType;
 vector<Statement> statements;
+//List funcArgs;
 
 /*VARIABLES*/
-#define MAKE Variable
+#define MAKE ;Variable
 #define NUMBER Variable()=false?-1
 #define WORD Variable()=false?""
 #define BOOLEAN Variable()=false?0
-#define LIST 
-#define ARRAY Variable
-#define SENTENCE
+#define LIST Variable()
+#define ARRAY List()=
+#define SENTENCE ;
 
 /*ARRAY ITEMS*/
-#define ITEM(iterators, arr)
-#define SETITEM(iterators, arr, newValue)
+#define ITEM(iterators, arr) ;
+#define SETITEM(iterators, arr, newValue) ;
 
 /*LIST ARGUMENTS*/
-#define ARG(iterator) args[i-1];
+#define ARG(iterator) ;args[i-1];
 
 /*TURTLE MOVEMENT*/
-#define SUM Sum<Variable>()
+#define SUM ;Sum<Variable>()
 //#define DIFFERENCE
-#define MINUS Minus
-#define PRODUCT Product
-#define QUOTIENT Quotient
-#define MODULO Modulo
-#define ASSIGN Assign
+#define MINUS ;Minus<Variable>
+#define PRODUCT ;Product<Variable>
+#define QUOTIENT ;Quotient<Variable>
+#define MODULO ;Modulo<Variable>
+#define ASSIGN ;Assign<Variable>
 
 #define __NL__ ;
 
 /*STATEMENT METHODS*/
-#define DO ){ statements.size() > 0 && statements.back().getLineNumber() == __LINE__ ? statements.back().incrementRepCount() : statements.push_back(Statement(statementType, __LINE__));
+#define DO ){	//TODO add ; for repeats 
 #define END } statements.pop_back();
 
 /*IF/ELIF STATEMENTS*/
-#define IF statementType = "if"; if(
+#define IF ;statements.push_back(Statement("if", __LINE__)); if(
 #define ELIF } else if(
-#define ELSE } else if(true){ statements.size() > 0 && statements.back().getLineNumber() == __LINE__ ? statements.back().incrementRepCount() : statements.push_back(Statement(statementType, __LINE__));
+#define ELSE } else if(true){
 
 /*REPEAT WHILE*/
-#define REPEAT statementType = "repeat"; for(int i = 0;
-#define TIMES ; i++
-#define WHILE
-#define REPCOUNT statements.back().getRepCount();
+#define REPEAT ;statements.push_back(Statement("repeat", __LINE__)); for(statements.back().initRepCount();
+#define TIMES != statements.back().getRepCount(); statements.back().incrementRepCount()
+#define WHILE false?false:
+#define REPCOUNT ;statements.back().getRepCount();
 
 /*FOREACH*/
-#define FOREACH statementType = "foreach";
+#define FOREACH ;statements.push_back(Statement("foreach", __LINE__);  for(auto i = 0;
 
 /*ELEM SHOW*/
 #define ELEM
@@ -64,13 +67,15 @@ vector<Statement> statements;
 #define NOT(condition) !condition
 
 /*TURTLE MOVEMENTS AND METHODS*/
-#define FORWARD turtle_mv_forward
-#define BACK turtle_mv_backward
-#define RIGHT turtle_rotate
-#define LEFT turtle_rotate
-#define CENTER turtle_go_to_center
-#define SETXY turtle_go_to_position
-#define CIRCLE turtle_draw_circle
+#define FORWARD Move("forward")=
+#define BACK Move("back")=
+#define RIGHT Move("right")=
+#define LEFT Move("left")=
+#define CENTER turtle_go_to_center();
+#define SETXY SETX SETY	//TODO SETXY 50 50
+#define SETX Move("x")=
+#define SETY Move("y")=
+#define CIRCLE Move("circle")=
 #define PRINT_WORD turtle_draw_label
 
 /*TURTLE MOVEMENT*/
@@ -86,17 +91,17 @@ vector<Statement> statements;
 #define FSTART ){
 #define FEND }
 #define RETURN return;
-#define CALL(...) (__VA_ARGS__)
+#define CALL(...) (__VA_ARGS__); funcArgs = __VA_ARGS__;
 
 template <typename Var>
-Var Sum(const Var v) {
+Variable Sum(const Var v) {
 	return v;
-}
+};
 
-template <typename Var, typename... List>
-Var Sum(Var v, List... l) {
+template <typename... List>
+Variable Sum(Variable v, List... l) {
 	return v + Sum(l...);
-}
+};
 
 template <typename Var>
 Var Difference(Var v1, Var v2) {
@@ -132,3 +137,10 @@ template <typename Var>
 Var Assign(Var v1, Var v2) {
 	return v1 = v2;
 }
+
+/* ################################################ */
+
+std::vector<Variable>* new_list() {
+	return new std::vector<Variable>;
+} 
+

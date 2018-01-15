@@ -1,60 +1,226 @@
-class Variable{	//TODO check class templates
+class Variable {	//TODO check class templates
 private:
 	char* word;
 	double number;
+	bool boolean;
+	std::vector<Variable> list;
 public:
 	Variable() {};
-	Variable(char* word) : word(word){};
-	Variable(double number) : number(number){};
-	Variable(int number) : number(number){};
+	Variable(char* word) : word(word) {};
+	Variable(double number) : number(number) {};
+	Variable(int number) : number(number) {};
+	Variable(bool boolean) : boolean(boolean) {};
 
-	inline bool operator==(char* string) {
-		return (word == string && word != NULL);
+	bool operator==(char* string) {
+		return (strcmp(this->word, string) == 0 && this->word != NULL);
 	}
 
-	inline bool operator==(int integer) {
-		return (number == integer && number != NULL);
+	bool operator==(int integer) {
+		return (this->number == integer && this->number != NULL);
 	}
 
-	inline bool operator==(double dbl) {
-		return (number == dbl && number != NULL);
+	bool operator==(double dbl) {
+		return (this->number == dbl && this->number != NULL);
 	}
 
-	inline bool operator==(Variable &rhs) {
-		return (number == rhs.number && number != NULL);
+	bool operator==(Variable rhs) {
+		return (this->number == rhs.number && number != NULL);
 	}
 
-	Variable& operator = (Variable &rhs) {
-		if (this == &rhs)
-			return *this;
-		return rhs;
+	bool operator<=(int number) {
+		return (number <= this->number && number != NULL);
 	}
 
-	Variable& operator = (char* a) {
+	bool operator<=(double number) {
+		return (number <= this->number && number != NULL);
+	}
+
+	bool operator<=(bool boolean) {
+		return (boolean <= this->boolean && boolean != NULL);
+	}
+
+	bool operator<=(char* word) {
+		return (strcmp(word, this->word) <= 0 && word != NULL);
+	}
+
+	bool operator>=(int number) {
+		return (number >= this->number && number != NULL);
+	}
+
+	bool operator>=(double number) {
+		return (number >= this->number && number != NULL);
+	}
+
+	bool operator>=(bool boolean) {
+		return (boolean >= this->boolean && boolean != NULL);
+	}
+
+	bool operator>=(char* word) {
+		return (strcmp(word, this->word) >= 0 && word != NULL);
+	}
+
+	bool operator<(int number) {
+		return (number < this->number && number != NULL);
+	}
+
+	bool operator<(double number) {
+		return (number < this->number && number != NULL);
+	}
+
+	bool operator<(bool boolean) {
+		return (boolean < this->boolean && boolean != NULL);
+	}
+
+	bool operator<(char* word) {
+		return (strcmp(word, this->word) < 0 && word != NULL);
+	}
+
+	bool operator>(int number) {
+		return (number > this->number && number != NULL);
+	}
+
+	bool operator>(double number) {
+		return (number > this->number && number != NULL);
+	}
+
+	bool operator>(bool boolean) {
+		return (boolean > this->boolean && boolean != NULL);
+	}
+
+	bool operator>(char* word) {
+		return (strcmp(word, this->word) > 0 && word != NULL);
+	}
+
+	Variable& Variable::operator = (Variable &v) {
+		return v;
+	}
+
+	//Variable& Variable::operator = (List &l) {
+	//	this->list = l;
+	//}
+
+	Variable& Variable::operator = (char* a) {
 		return Variable(a);
 	}
 
-	Variable& operator = (int a) {
+	Variable& Variable::operator = (int a) {
 		return Variable(a);
 	}
 
-	Variable& operator = (double a) {
+	Variable& Variable::operator = (double a) {
 		return Variable(a);
 	}
 
-	/*
-	template<typename var>
-	Variable* operator = (var a){ 
-		//if(&other == this)
-        //    return *this;
-	   return new Variable(a);
+	double getNumber() {
+		return number;
 	}
 
-	template<typename var>
-	inline Variable& operator=(var a) {
-		return Variable(a);
+	char* getWord() {
+		return word;
 	}
-	*/
 
+	bool getBoolean() {
+		return boolean;
+	}
+
+	std::vector<Variable> getList() {
+		return list;
+	}
+
+	
+
+	Variable& operator, (Variable& item) {
+		this->list = item.getList();
+		this->list.push_back(item);
+		return *this;
+	}
+
+	Variable& operator[](Variable& v) {
+		this -> list = v.getList();
+		this -> list.push_back(v);
+		return *this;
+	}
 };
 
+bool operator==(int number, Variable rhs) {
+	return (number == rhs.getNumber() && number != NULL);
+}
+
+bool operator==(double number, Variable rhs) {
+	return (number == rhs.getNumber() && number != NULL);
+}
+
+bool operator==(bool boolean, Variable rhs) {
+	return (boolean == rhs.getBoolean() && boolean != NULL);
+}
+
+bool operator==(char* word, Variable rhs) {
+	return (strcmp(word, rhs.getWord())==0 && word != NULL);
+}
+
+bool operator<=(int number, Variable rhs) {
+	return (number <= rhs.getNumber() && number != NULL);
+}
+
+bool operator<=(double number, Variable rhs) {
+	return (number <= rhs.getNumber() && number != NULL);
+}
+
+bool operator<=(bool boolean, Variable rhs) {
+	return (boolean <= rhs.getBoolean() && boolean != NULL);
+}
+
+bool operator<=(char* word, Variable rhs) {
+	return (strcmp(word, rhs.getWord()) <= 0 && word != NULL);
+}
+
+bool operator>=(int number, Variable rhs) {
+	return (number >= rhs.getNumber() && number != NULL);
+}
+
+bool operator>=(double number, Variable rhs) {
+	return (number >= rhs.getNumber() && number != NULL);
+}
+
+bool operator>=(bool boolean, Variable rhs) {
+	return (boolean >= rhs.getBoolean() && boolean != NULL);
+}
+
+bool operator>=(char* word, Variable rhs) {
+	return (strcmp(word, rhs.getWord()) >= 0 && word != NULL);
+}
+
+bool operator<(int number, Variable rhs) {
+	return (number < rhs.getNumber() && number != NULL);
+}
+
+bool operator<(double number, Variable rhs) {
+	return (number < rhs.getNumber() && number != NULL);
+}
+
+bool operator<(bool boolean, Variable rhs) {
+	return (boolean < rhs.getBoolean() && boolean != NULL);
+}
+
+bool operator<(char* word, Variable rhs) {
+	return (strcmp(word, rhs.getWord()) < 0 && word != NULL);
+}
+
+bool operator>(int number, Variable rhs) {
+	return (number > rhs.getNumber() && number != NULL);
+}
+
+bool operator>(double number, Variable rhs) {
+	return (number > rhs.getNumber() && number != NULL);
+}
+
+bool operator>(bool boolean, Variable rhs) {
+	return (boolean > rhs.getBoolean() && boolean != NULL);
+}
+
+bool operator>(char* word, Variable rhs) {
+	return (strcmp(word, rhs.getWord()) > 0 && word != NULL);
+}
+
+
+// ####################   not rdy   ####################   

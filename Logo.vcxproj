@@ -66,20 +66,34 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="defines.h" />
     <ClInclude Include="GUI_demo\hy352_gui.h" />
+    <ClInclude Include="list.h" />
+    <ClInclude Include="move.h" />
     <ClInclude Include="statement.h" />
+    <ClInclude Include="tempalteVariable.h" />
     <ClInclude Include="variable.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="GUI_demo\pirulen rg.ttf" />
     <None Include="GUI_demo\README.md" />
     <None Include="GUI_demo\turtle.png" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GUI_demo\hy352_gui.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="packages\AllegroDeps.1.7.0.0\build\native\AllegroDeps.targets" Condition="Exists('packages\AllegroDeps.1.7.0.0\build\native\AllegroDeps.targets')" />
+    <Import Project="packages\Allegro.5.2.3.1\build\native\Allegro.targets" Condition="Exists('packages\Allegro.5.2.3.1\build\native\Allegro.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\AllegroDeps.1.7.0.0\build\native\AllegroDeps.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\AllegroDeps.1.7.0.0\build\native\AllegroDeps.targets'))" />
+    <Error Condition="!Exists('packages\Allegro.5.2.3.1\build\native\Allegro.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Allegro.5.2.3.1\build\native\Allegro.targets'))" />
+  </Target>
 </Project>

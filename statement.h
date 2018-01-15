@@ -16,6 +16,10 @@ public:
 	int getRepCount(void){
 		return repcount;
 	}
+
+	void initRepCount(void) {
+		repcount = 0;
+	}
 	
 	int getLineNumber(void){
 		return lineNumber;
