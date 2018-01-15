@@ -137,14 +137,13 @@ public:
 	
 
 	Variable& operator, (Variable& item) {
-		this->list = item.getList();
 		this->list.push_back(item);
 		return *this;
 	}
 
 	Variable& operator[](Variable& v) {
 		this -> list = v.getList();
-		this -> list.push_back(v);
+		this->list.insert(this ->list.begin(), v);
 		return *this;
 	}
 };

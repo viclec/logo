@@ -12,37 +12,36 @@ int main(int argc, char **argv)
       fprintf(stderr, "failed to initialize allegro!\n");
       return -1;
    }
-
+   
    display = al_create_display(640, 480);
    if(!display) {
       fprintf(stderr, "failed to create display!\n");
       return -1;
    }
 
-   MAKE number = NUMBER:31
+	MAKE number = NUMBER:31
+	MAKE string = WORD : "sassy"
+	MAKE boolean = BOOLEAN : true
 
-	   MAKE string = WORD : "sassy"
-	   MAKE boolean = BOOLEAN : true
-
-	   //MAKE list = LIST{ NUMBER:12, NUMBER : 0, NUMBER : 0 }
+	// MAKE list = LIST{ NUMBER:12, NUMBER : 0, NUMBER : 0 }
 
 
-   IF string == (WORD:"feaf") DO	//TODO string comparisson 
-	   cout << "True";
-   ELIF number == (NUMBER:31) DO
-	   cout << "False";
-   ELSE
-	   cout << "ELSE";
-   END
+	IF string == (WORD:"feaf") DO	//TODO string comparisson 
+		cout << "True";
+	ELIF number == (NUMBER:31) DO
+		cout << "False";
+	ELSE
+		cout << "ELSE";
+	END
 
-	   MAKE S = LIST[number, string];
-   MAKE MAN = LIST[S, string];
+	MAKE S = LIST[NUMBER:111, NUMBER : 222, NUMBER : 333, NUMBER : 444, NUMBER : 555];
+	//MAKE MAN = LIST[S, string];
 
 	REPEAT 5 TIMES DO
-	std::cout << "repeat";
+		std::cout << "repeat";
 	END
 	
-
+		
    al_clear_to_color(al_map_rgb(0,0,0));
    
    al_flip_display();
