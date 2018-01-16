@@ -41,6 +41,9 @@ int main(int argc, char **argv)
 		string, number
 	};
 
+	ITEM({ 1,3 }, a)
+	SETITEM({1,3}, a, WORD: "fea")
+
 	MAKE av;
 
 	av = a;
