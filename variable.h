@@ -9,6 +9,7 @@ protected:
 	std::vector<Variable> list;
 	std::string type;
 public:
+	bool isValid = 1;
 	Variable() {};
 	Variable(char* word) : word(word) {};
 	Variable(double number) : number(number) {};
@@ -99,6 +100,16 @@ public:
 		return v;
 	}
 
+	Variable& Variable::operator = (Variable* v) {
+		int iterator = 0;
+		Variable* tmp = &v[iterator];
+		while (tmp->isValid) {
+			this->list.push_back(*tmp);
+			tmp = &v[++iterator];
+		}
+		return *this;
+	}
+
 	//Variable& Variable::operator = (List &l) {
 	//	this->list = l;
 	//}
@@ -127,6 +138,10 @@ public:
 
 	char* getWord() {
 		return word;
+	}
+
+	bool hasType() {
+		return type != "";
 	}
 
 	bool getBoolean() {
