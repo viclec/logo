@@ -2,6 +2,7 @@
 #include <vector>
 #include "./variable.h"
 #include "./Array.h"
+#include "./Sentence.h"
 #include "./statement.h"
 #include "./GUI_demo/hy352_gui.h"
 #include "./move.h"
@@ -19,8 +20,9 @@ vector<Statement> statements;
 #define WORD Variable()=false?""
 #define BOOLEAN Variable()=false?0
 #define LIST Variable()
-#define ARRAY Array()
-#define SENTENCE ;
+#define ARRAY Variable a[]=
+#define SIZE false?-1
+#define SENTENCE Sentence()
 
 /*ARRAY ITEMS*/
 #define ITEM(iterators, arr) ;
