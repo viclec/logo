@@ -99,29 +99,30 @@ vector<Statement> statements;
 template <typename T>
 Variable getItem(initializer_list<T> l, Variable* var)
 {
-	const T*       it = l.begin();  // raw pointer!
-	const T* const end = l.end();    // raw pointer!
-	
+	const T*       it = l.begin();
+	const T* const end = l.end();
+
+	Variable* tmp = var;
+
 	for (; it != end; ++it)
-		;
+		tmp[*it - 1];
 
 	return Variable();
 
-	// or, for sure, something faster
 }
 
 template <typename T>
 Variable setItem(initializer_list<T> l, Variable* var, Variable& value)
 {
-	const T*       it = l.begin();  // raw pointer!
-	const T* const end = l.end();    // raw pointer!
+	const T*       it = l.begin();
+	const T* const end = l.end();
+
+	Variable* tmp = var;
 
 	for (; it != end; ++it)
-		;
+		tmp[*it - 1];
 
 	return Variable();
-
-	// or, for sure, something faster
 }
 
 void printArgs(initializer_list <int> iterator, Variable arr[]) {
