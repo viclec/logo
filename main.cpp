@@ -36,7 +36,14 @@ int main(int argc, char **argv)
 
 	MAKE S = LIST[WORD:"test", NUMBER : 222, number, NUMBER : 444, string];
 	MAKE MAN = LIST[string,S, NUMBER:666];
-	
+	MAKE SEN = SENTENCE((WORD: "This", WORD : " is", string));
+	ARRAY{
+		string, number
+	};
+
+	MAKE av;
+
+	av = a;
 
 	REPEAT 5 TIMES DO
 		std::cout << "repeat";
