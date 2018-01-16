@@ -41,8 +41,7 @@ int main(int argc, char **argv)
 	REPEAT 5 TIMES DO
 		std::cout << "repeat";
 	END
-	
-		
+
    al_clear_to_color(al_map_rgb(0,0,0));
    
    al_flip_display();
