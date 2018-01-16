@@ -25,8 +25,8 @@ vector<Statement> statements;
 #define SENTENCE Sentence()
 
 /*ARRAY ITEMS*/
-#define ITEM(iterators, arr) ;
-#define SETITEM(iterators, arr, newValue) ;
+#define ITEM(...) getItem<int>(__VA_ARGS__);
+#define SETITEM(...) setItem<int>(__VA_ARGS__);
 
 /*LIST ARGUMENTS*/
 #define ARG(iterator) ;args[i-1];
@@ -95,6 +95,45 @@ vector<Statement> statements;
 #define FEND }
 #define RETURN return;
 #define CALL(...) (__VA_ARGS__); funcArgs = __VA_ARGS__;
+
+template <typename T>
+Variable getItem(initializer_list<T> l, Variable* var)
+{
+	const T*       it = l.begin();
+	const T* const end = l.end();
+
+	Variable* tmp = var;
+
+	for (; it != end; ++it)
+		tmp[*it - 1];
+
+	return Variable();
+
+}
+
+template <typename T>
+Variable setItem(initializer_list<T> l, Variable* var, Variable& value)
+{
+	const T*       it = l.begin();
+	const T* const end = l.end();
+
+	Variable* tmp = var;
+
+	for (; it != end; ++it)
+		tmp[*it - 1];
+
+	return Variable();
+}
+
+void printArgs(initializer_list <int> iterator, Variable arr[]) {
+	const int*       it = iterator.begin();  // raw pointer!
+	const int* const end = iterator.end();    // raw pointer!
+
+	std::vector<int> v;
+
+	for (; it != end; ++it)
+		v.push_back(*it);
+};
 
 template <typename Var>
 Variable Sum(const Var v) {

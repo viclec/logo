@@ -38,8 +38,12 @@ int main(int argc, char **argv)
 	MAKE MAN = LIST[string,S, NUMBER:666];
 	MAKE SEN = SENTENCE((WORD: "This", WORD : " is", string));
 	ARRAY{
-		string, number
+		string, number,
+		MAN
 	};
+
+	ITEM({ 1,3 }, a)
+	SETITEM({1,3}, a, WORD: "fea")
 
 	MAKE av;
 
