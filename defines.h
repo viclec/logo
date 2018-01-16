@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "./variable.h"
+#include "./Array.h"
 #include "./statement.h"
 #include "./GUI_demo/hy352_gui.h"
 #include "./move.h"
@@ -18,7 +19,7 @@ vector<Statement> statements;
 #define WORD Variable()=false?""
 #define BOOLEAN Variable()=false?0
 #define LIST Variable()
-#define ARRAY List()=
+#define ARRAY Array()
 #define SENTENCE ;
 
 /*ARRAY ITEMS*/

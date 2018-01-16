@@ -1,5 +1,8 @@
+#ifndef __VARIABLE__
+#define __VARIABLE__
+
 class Variable {	//TODO check class templates
-private:
+protected:
 	char* word;
 	double number;
 	bool boolean;
@@ -134,8 +137,6 @@ public:
 		return list;
 	}
 
-	
-
 	Variable& operator, (Variable& item) {
 		this->list.push_back(item);
 		return *this;
@@ -227,5 +228,4 @@ bool operator>(bool boolean, Variable rhs) {
 bool operator>(char* word, Variable rhs) {
 	return (strcmp(word, rhs.getWord()) > 0 && word != NULL);
 }
-
-// ####################   not rdy   ####################   
+#endif  __VARIABLE__

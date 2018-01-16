@@ -34,8 +34,9 @@ int main(int argc, char **argv)
 		cout << "ELSE";
 	END
 
-	MAKE S = LIST[NUMBER:111, NUMBER : 222, NUMBER : 333, NUMBER : 444, NUMBER : 555];
-	//MAKE MAN = LIST[S, string];
+	MAKE S = LIST[WORD:"test", NUMBER : 222, number, NUMBER : 444, string];
+	MAKE MAN = LIST[string,S, NUMBER:666];
+	
 
 	REPEAT 5 TIMES DO
 		std::cout << "repeat";
