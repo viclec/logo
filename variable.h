@@ -137,12 +137,17 @@ public:
 	}
 
 	Variable& Variable::operator+ (Variable v) {
+		assert(this->type == "number" && v.getType() == "number");
 		this->number += v.getNumber();
 		return *this;
 	}
 
 	double getNumber() {
 		return number;
+	}
+
+	std::string getType() {
+		return type;
 	}
 
 	char* getWord() {
