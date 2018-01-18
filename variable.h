@@ -136,6 +136,11 @@ public:
 		return *this;
 	}
 
+	Variable& Variable::operator+ (Variable v) {
+		this->number += v.getNumber();
+		return *this;
+	}
+
 	double getNumber() {
 		return number;
 	}

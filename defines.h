@@ -32,7 +32,7 @@ vector<Statement> statements;
 #define ARG(iterator) ;args[i-1];
 
 /*TURTLE MOVEMENT*/
-#define SUM ;Sum<Variable>()
+#define SUM(...) Sum<Variable>(__VA_ARGS__)
 //#define DIFFERENCE
 #define MINUS ;Minus<Variable>
 #define PRODUCT ;Product<Variable>
@@ -154,7 +154,7 @@ Variable Sum(const Var v) {
 
 template <typename... List>
 Variable Sum(Variable v, List... l) {
-	return v + Sum(l...);
+	return v + Sum<Variable>(l...);
 };
 
 template <typename Var>

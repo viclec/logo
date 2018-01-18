@@ -44,8 +44,11 @@ int main(int argc, char **argv)
 
 	MAKE LALA = ITEM({ 2, 1 }, MAN)
 
-	SETITEM({2,1}, MAN, WORD: "fea")
-	//ama to lala exei test tote exei mono value, ama exei fea exei reference
+		SETITEM({ 2,1 }, MAN, WORD: "fea")
+		//ama to lala exei test tote exei mono value, ama exei fea exei reference
+
+		MAKE aaa = SUM(NUMBER:21, NUMBER : 31, number, NUMBER : 31, NUMBER : 31)
+
 
 	MAKE av;
 
