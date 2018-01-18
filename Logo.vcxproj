@@ -71,6 +71,7 @@
     <ClInclude Include="GUI_demo\hy352_gui.h" />
     <ClInclude Include="list.h" />
     <ClInclude Include="move.h" />
+    <ClInclude Include="Print.h" />
     <ClInclude Include="Sentence.h" />
     <ClInclude Include="statement.h" />
     <ClInclude Include="tempalteVariable.h" />
