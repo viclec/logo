@@ -142,6 +142,36 @@ public:
 		this->number += v.getNumber();
 		return *this;
 	}
+	
+	Variable& Variable::operator- (Variable v) {
+		assert(this->type == "number" && v.getType() == "number");
+		this->number -= v.getNumber();
+		return *this;
+	}
+	Variable& Variable::operator* (Variable v) {
+		assert(this->type == "number" && v.getType() == "number");
+		this->number *= v.getNumber();
+		return *this;
+	}
+	Variable& Variable::operator* (double v) {
+		assert(this->type == "number");
+		this->number *= v;
+
+		return *this;
+	}
+	Variable& Variable::operator/ (Variable v) {
+		assert(this->type == "number" && v.getType() == "number");
+		assert(v.getNumber() != 0);
+		this->number /= v.getNumber();
+		return *this;
+	}
+	Variable& Variable::operator% (Variable v) {
+		assert(this->type == "number" && v.getType() == "number");
+		assert(v.getNumber() != 0);
+		this ->number = (int)this->number % (int)v.getNumber();
+		return *this;
+	}
+
 
 	Variable& Variable::operator<< (Variable v) {
 		assert(this->type == "word" && v.getType() == "word");
@@ -157,6 +187,7 @@ public:
 	std::string getType() {
 		return type;
 	}
+
 
 	std::vector<char*> getSentence() {
 		return sentence;
@@ -277,6 +308,7 @@ bool operator>(bool boolean, Variable rhs) {
 bool operator>(char* word, Variable rhs) {
 	return (strcmp(word, rhs.getWord()) > 0 && word != NULL);
 }
+
 std::ostream& operator<<(std::ostream& os, Variable v){
 	if (v.getSentence().size() > 0) {
 		int i = v.getSentence().size();

@@ -42,17 +42,20 @@ int main(int argc, char **argv)
 		MAN
 	};
 
-	MAKE LALA = ITEM({ 2, 1 }, MAN)
 
-		SETITEM({ 2,1 }, MAN, WORD: "fea")
-		//ama to lala exei test tote exei mono value, ama exei fea exei reference
+	MAKE LALA = ITEM({ 2, 3 }, MAN)
+
+
+	SETITEM({ 2,1 }, MAN, WORD: "fea")
+	//ama to lala exei test tote exei mono value, ama exei fea exei reference
 
 		MAKE aaa = SENTENCE(string, string, WORD: "is the", WORD:"NEXT big", WORD:"thing")
 
 
-	MAKE av;
 
-	av = a;
+	MAKE av = DIFFERENCE(NUMBER:12, LALA);
+	
+	MAKE fdsa = MODULO(NUMBER:12, 0);
 
 	REPEAT 5 TIMES DO
 		std::cout << "repeat";
