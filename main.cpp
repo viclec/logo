@@ -42,8 +42,10 @@ int main(int argc, char **argv)
 		MAN
 	};
 
-	ITEM({ 1,3 }, a)
-	SETITEM({1,3}, a, WORD: "fea")
+	MAKE LALA = ITEM({ 2, 1 }, MAN)
+
+	SETITEM({2,1}, MAN, WORD: "fea")
+	//ama to lala exei test tote exei mono value, ama exei fea exei reference
 
 	MAKE av;
 
@@ -52,7 +54,8 @@ int main(int argc, char **argv)
 	REPEAT 5 TIMES DO
 		std::cout << "repeat";
 	END
-
+	
+		
    al_clear_to_color(al_map_rgb(0,0,0));
    
    al_flip_display();

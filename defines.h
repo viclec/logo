@@ -97,32 +97,44 @@ vector<Statement> statements;
 #define CALL(...) (__VA_ARGS__); funcArgs = __VA_ARGS__;
 
 template <typename T>
-Variable getItem(initializer_list<T> l, Variable* var)
+Variable getItem(initializer_list<T> l, Variable& var)
 {
 	const T*       it = l.begin();
 	const T* const end = l.end();
+	int i = 0;
 
-	Variable* tmp = var;
+	std::vector<Variable> array;
+	
+	array.push_back(var.getList()[*(it++)-1]);
+	for (i = 0; it != end; it++, i++) {
+		array.push_back(array[i].getList()[*(it) - 1]);
+	}
 
-	for (; it != end; ++it)
-		tmp[*it - 1];
-
-	return Variable();
-
+	return array[array.size() - 1];
 }
 
 template <typename T>
-Variable setItem(initializer_list<T> l, Variable* var, Variable& value)
+Variable setItem(initializer_list<T> l, Variable& var, Variable& value)
 {
+
 	const T*       it = l.begin();
 	const T* const end = l.end();
+	int i = 0;
 
-	Variable* tmp = var;
+	std::vector<Variable> array;
 
-	for (; it != end; ++it)
-		tmp[*it - 1];
+	array.push_back(var.getList()[*(it++) - 1]);
+
+	for (i = 0; it != end; it++, i++) {
+		array.push_back(array[i].getList()[*(it)-1]);
+	}
+	array.pop_back();
+	array.push_back(value);
+
+
 
 	return Variable();
+
 }
 
 void printArgs(initializer_list <int> iterator, Variable arr[]) {

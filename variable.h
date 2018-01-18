@@ -96,11 +96,11 @@ public:
 		return (strcmp(word, this->word) > 0 && word != NULL);
 	}
 
-	Variable& Variable::operator = (Variable &v) {
+	Variable& Variable::operator= (Variable &v) {
 		return v;
 	}
 
-	Variable& Variable::operator = (Variable* v) {
+	Variable& Variable::operator= (Variable* v) {
 		int iterator = 0;
 		Variable* tmp = &v[iterator];
 		while (tmp->isValid) {
@@ -109,24 +109,28 @@ public:
 		}
 		return *this;
 	}
+	
+	Variable& operator= (std::vector<Variable> array) {
+	
+	}
 
-	//Variable& Variable::operator = (List &l) {
+	//Variable& Variable::operator= (List &l) {
 	//	this->list = l;
 	//}
 
-	Variable& Variable::operator = (char* a) {
+	Variable& Variable::operator= (char* a) {
 		this->word = a;
 		this->type = "word";
 		return *this;
 	}
 
-	Variable& Variable::operator = (int a) {
+	Variable& Variable::operator= (int a) {
 		this->number = a;
 		this->type = "number";
 		return *this;
 	}
 
-	Variable& Variable::operator = (double a) {
+	Variable& Variable::operator= (double a) {
 		this->number = a;
 		this->type = "number";
 		return *this;
@@ -160,9 +164,17 @@ public:
 	Variable& operator[](Variable& v) {
 		this -> list = v.getList();
 		this->list.insert(this ->list.begin(), v);
+	
+		// to ka8arizoume gt pername by reference k meta menoun sto list skoupidia an exei 8ema to vgazoume
+		for (int i = 2; i < this -> list.size(); i++) {
+			this->list[i].list.clear();
+		}
+		
 		return *this;
 	}
 };
+
+
 
 bool operator==(int number, Variable rhs) {
 	return (number == rhs.getNumber() && number != NULL);
