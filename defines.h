@@ -33,12 +33,12 @@ vector<Statement> statements;
 
 /*TURTLE MOVEMENT*/
 #define SUM(...) Sum<Variable>(__VA_ARGS__)
-//#define DIFFERENCE
-#define MINUS ;Minus<Variable>
-#define PRODUCT ;Product<Variable>
-#define QUOTIENT ;Quotient<Variable>
-#define MODULO ;Modulo<Variable>
-#define ASSIGN ;Assign<Variable>
+#define DIFFERENCE(...) Difference<Variable>(__VA_ARGS__)
+#define MINUS(...) Minus<Variable>(__VA_ARGS__)
+#define PRODUCT(...) Product<Variable>(__VA_ARGS__)
+#define QUOTIENT(...) Quotient<Variable>(__VA_ARGS__)
+#define MODULO(...) Modulo<Variable>(__VA_ARGS__)
+#define ASSIGN(...) Assign<Variable>(__VA_ARGS__)
 
 #define __NL__ ;
 
@@ -163,7 +163,7 @@ Var Difference(Var v1, Var v2) {
 }
 
 template <typename Var>
-Var Minus(Var v) {
+Var& Minus(Var v) {
 	return v * (-1);
 }
 
@@ -174,7 +174,7 @@ Var Product(Var v1, Var v2) {
 
 template <typename Var, typename... List>
 Var Product(Var v, List... l) {
-	return v * Product(l...);
+	return v * Product<Variable>(l...);
 }
 
 template <typename Var>
