@@ -6,6 +6,7 @@ protected:
 	char* word;
 	double number;
 	bool boolean;
+	std::vector<char*> sentence;
 	std::vector<Variable> list;
 	std::string type;
 public:
@@ -142,12 +143,23 @@ public:
 		return *this;
 	}
 
+	Variable& Variable::operator<< (Variable v) {
+		assert(this->type == "word" && v.getType() == "word");
+		this->sentence = v.getSentence();
+		this->sentence.push_back(word);
+		return *this;
+	}
+
 	double getNumber() {
 		return number;
 	}
 
 	std::string getType() {
 		return type;
+	}
+
+	std::vector<char*> getSentence() {
+		return sentence;
 	}
 
 	char* getWord() {
