@@ -277,4 +277,16 @@ bool operator>(bool boolean, Variable rhs) {
 bool operator>(char* word, Variable rhs) {
 	return (strcmp(word, rhs.getWord()) > 0 && word != NULL);
 }
+std::ostream& operator<<(std::ostream& os, Variable v){
+	if (v.getSentence().size() > 0) {
+		int i = v.getSentence().size();
+		while (i != 0) {
+			os << v.getSentence()[--i];
+		}
+	}
+	else {
+		os << v.getWord();
+	}
+	return os;
+}
 #endif  __VARIABLE__
