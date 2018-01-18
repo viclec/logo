@@ -2,7 +2,6 @@
 #include <vector>
 #include "./variable.h"
 #include "./Array.h"
-#include "./Sentence.h"
 #include "./statement.h"
 #include "./GUI_demo/hy352_gui.h"
 #include "./move.h"
@@ -22,7 +21,7 @@ vector<Statement> statements;
 #define LIST Variable()
 #define ARRAY Variable a[]=
 #define SIZE false?-1
-#define SENTENCE Sentence()
+#define SENTENCE(...) Sentence<Variable>(__VA_ARGS__)
 
 /*ARRAY ITEMS*/
 #define ITEM(...) getItem<int>(__VA_ARGS__);
@@ -192,15 +191,18 @@ Var Assign(Var v1, Var v2) {
 	return v1 = v2;
 }
 
-/*
+template <typename Var>
+Var Sentence(Var v) {
+	return v << v;
+}
+
 template <typename Var, typename... List>
 Var Sentence(Var v, List... l) {
 	
 
-	Sentence(l...);
-	return;
+	v << Sentence<Variable>(l...);
+	return v;
 }
-*/
 
 /* ################################################ */
 
