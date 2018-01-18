@@ -47,7 +47,7 @@ int main(int argc, char **argv)
 		SETITEM({ 2,1 }, MAN, WORD: "fea")
 		//ama to lala exei test tote exei mono value, ama exei fea exei reference
 
-		MAKE aaa = SUM(NUMBER:21, NUMBER : 31, number, NUMBER : 31, NUMBER : 31)
+		MAKE aaa = SENTENCE(string, string, WORD: "is the", WORD:"NEXT big", WORD:"thing")
 
 
 	MAKE av;
