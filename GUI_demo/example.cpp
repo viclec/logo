@@ -1,4 +1,4 @@
-#include "../defines.h"
+#include "../LOGO.h"
 #ifdef APPLE
 #include <allegro5/allegro.h> //**
 #endif
@@ -32,20 +32,24 @@ int main(int argc, char **argv)
 
 			MAKE S = LIST[WORD:"test", NUMBER : 222, number, NUMBER : 444, string];
 		MAKE MAN = LIST[string, S, NUMBER:666];
-		MAKE SEN = SENTENCE(WORD: "This", WORD : " is", string);
+		MAKE SEN = SENTENCE(WORD: "This", WORD : " is ", string);
 
 		SHOW SEN;
 
-		ARRAY SIZE : 20;
+		MAKE b = ARRAY SIZE : 20;
+
+		MAKE c = ARRAY{
+			number, string, MAN, number
+		};
 
 		MAKE a = ARRAY{
-			number, string, MAN, SEN
+			number, string, c, SEN
 		};
 
 		PRINT SEN;
 
 
-		MAKE LALA = ITEM({ 2, 3 }, MAN)
+		MAKE LALA = ITEM({ 3, 3, 1 }, a)
 
 
 			SETITEM({ 2,1 }, MAN, WORD: "fea")
@@ -57,13 +61,7 @@ int main(int argc, char **argv)
 		PRINT aaa;
 		PRINT WORD : "FEA34 fe eaf";
 
-		MAKE av = DIFFERENCE(NUMBER:12, LALA);
-
-		MAKE fdsa = MODULO(NUMBER:12, NUMBER : 3);
-
 		MAKE test = NUMBER:32;
-
-		ASSIGN fdsa = DIFFERENCE(NUMBER:12, LALA);
 
 
 		REPEAT 5 TIMES DO
