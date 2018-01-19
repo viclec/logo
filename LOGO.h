@@ -33,7 +33,9 @@ vector<Statement> statements;
 #define SETITEM(...) setItem<int>(__VA_ARGS__);	//TODO
 
 /*LIST ARGUMENTS*/
-#define ARG(i) args.getList()[i-1].getValue();
+//#define ARG(i) (args.getList()[i-1].getType().std::string::compare("number")==0)?args.getList()[i-1].getNumber():args.getList()[i-1];
+//#define ARG(i) args.getList()[i-1];
+#define ARG(i) args.getList()[i-1].getNumber();
 
 /*BOOL CONSTANTS*/
 #define TRUE true
@@ -66,10 +68,10 @@ vector<Statement> statements;
 #define REPCOUNT statements.back().getRepCount()
 
 /*FOREACH*/
-#define FOREACH ;statements.push_back(Statement("foreach", __LINE__);  for(auto i :	//TODO
+#define FOREACH ;statements.push_back(Statement("foreach", __LINE__);  for(auto &i :	//TODO
+#define ELEM	statements.back().getCurrentElement();
 
-/*ELEM SHOW*/
-#define ELEM	//TODO
+/*SHOW*/
 #define SHOW cout << 
 
 /*PROGRAM DEFINES*/
@@ -87,7 +89,7 @@ vector<Statement> statements;
 #define RIGHT ;Move("right")=
 #define LEFT ;Move("left")=
 #define CENTER ;turtle_go_to_center();
-#define SETXY ;Move("xy")=	//TODO
+#define SETXY ;Move("xy")=
 #define SETX ;Move("x")=
 #define SETY ;Move("y")=
 #define CIRCLE ;Move("circle")=
