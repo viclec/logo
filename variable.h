@@ -220,6 +220,10 @@ public:
 		return type;
 	}
 
+	std::vector<Variable> getArray() {
+		return array;
+	}
+
 	std::vector<char*> getSentence() {
 		return sentence;
 	}
