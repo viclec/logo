@@ -225,8 +225,8 @@ public:
 	}
 
 	char* getSentenceAsString() {	//TODO return string 
-		/*
-		char* result;
+									/*
+									char* result;
 		int i, j;
 		for (i = 0, result = (char*)calloc(1, strlen(sentence[i])); i < sentence.size(); i++, result = (char*)realloc(result, strlen(sentence[i]))) {
 			for (j = 0; j < strlen(sentence[i]); j++) {	
@@ -245,7 +245,17 @@ public:
 		}
 		return result;
 		*/
-		return "FAEFA";
+
+		int i, j;
+		char result[1024];	//TODO malloc + realloc 
+
+		strcpy(result, sentence[sentence.size() - 1]);
+
+		for (i = sentence.size()-2; i >= 0; i--) {
+			strcat(result, sentence[i]);
+		}
+
+		return result;
 	}
 
 	char* getWord() {
