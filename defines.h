@@ -37,7 +37,7 @@ vector<Statement> statements;
 #define PRODUCT(...) Product<Variable>(__VA_ARGS__)
 #define QUOTIENT(...) Quotient<Variable>(__VA_ARGS__)
 #define MODULO(...) Modulo<Variable>(__VA_ARGS__)
-#define ASSIGN(...) Assign<Variable>(__VA_ARGS__)
+#define ASSIGN 
 
 #define __NL__ ;
 
@@ -64,7 +64,7 @@ vector<Statement> statements;
 #define SHOW
 
 /*BOOL OPERATORS*/
-#define AND(leftCondition, rightCondition) leftCondition && rightCondition
+#define AND(...) And<Variable>(__VA_ARGS__)
 #define OR(leftCondition, rightCondition) leftCondition || rightCondition
 #define NOT(condition) !condition
 
@@ -147,10 +147,18 @@ void printArgs(initializer_list <int> iterator, Variable arr[]) {
 };
 
 template <typename Var>
+Variable And(const Var v) {
+	return v;
+}
+template <typename... List>
+bool And(Variable v, List... l) {
+	return v && And<Variable>(l...);
+}
+
+template <typename Var>
 Variable Sum(const Var v) {
 	return v;
 };
-
 template <typename... List>
 Variable Sum(Variable v, List... l) {
 	return v + Sum<Variable>(l...);
@@ -187,7 +195,7 @@ Var Modulo(Var v1, Var v2) {
 }
 
 template <typename Var>
-Var Assign(Var v1, Var v2) {
+Var& Assign(Var& v1, Var v2) {
 	return v1 = v2;
 }
 

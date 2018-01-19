@@ -26,9 +26,9 @@ int main(int argc, char **argv)
 	// MAKE list = LIST{ NUMBER:12, NUMBER : 0, NUMBER : 0 }
 
 
-	IF string == (WORD:"feaf") DO	//TODO string comparisson 
+	IF (!(number) || !(number == (NUMBER:31))) DO	//TODO string comparisson 
 		cout << "True";
-	ELIF number == (NUMBER:31) DO
+	ELIF number >= (NUMBER:21) DO
 		cout << "False";
 	ELSE
 		cout << "ELSE";
@@ -55,7 +55,12 @@ int main(int argc, char **argv)
 
 	MAKE av = DIFFERENCE(NUMBER:12, LALA);
 	
-	MAKE fdsa = MODULO(NUMBER:12, 0);
+	MAKE fdsa = MODULO(NUMBER:12, NUMBER:3);
+
+	MAKE test = NUMBER:32;
+
+	ASSIGN fdsa = DIFFERENCE(NUMBER:12, LALA);
+
 
 	REPEAT 5 TIMES DO
 		std::cout << "repeat";
