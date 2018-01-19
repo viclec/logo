@@ -188,9 +188,32 @@ public:
 		return type;
 	}
 
-
 	std::vector<char*> getSentence() {
 		return sentence;
+	}
+
+	char* getSentenceAsString() {
+		/*
+		char* result;
+		int i, j;
+		for (i = 0, result = (char*)calloc(1, strlen(sentence[i])); i < sentence.size(); i++, result = (char*)realloc(result, strlen(sentence[i]))) {
+			for (j = 0; j < strlen(sentence[i]); j++) {	
+				result[j+i*j] = sentence[i][j];
+			}
+		}
+
+		std::cout << result;
+
+		return result;
+
+		char* result;
+		int i = getSentence().size();
+		while (i != 0) {
+			strcat(result, getSentence()[--i]);
+		}
+		return result;
+		*/
+		return "FAEFA";
 	}
 
 	char* getWord() {
