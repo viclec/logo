@@ -101,14 +101,16 @@ public:
 	}
 
 	Variable& Variable::operator= (Variable &v) {
-		if (this->type.std::string::compare("number") == 0) {
+		if (v.getType().std::string::compare("number") == 0) {
 			this -> number = v.getNumber();
+			this->type = v.getType();
 		}
-		else if (this->type.std::string::compare("word") == 0) {
+		else if (v.getType().std::string::compare("word") == 0) {
 			this->word = v.getWord();
+			this->type = v.getType();
 		}
 		else {
-			assert(1);
+			assert(0);
 		}
 		return *this;
 	}
@@ -298,62 +300,77 @@ public:
 	bool operator== (Variable v) {
 		if ((this->type.std::string::compare(v.getType()) == 0) && (this->type.std::string::compare("number") == 0)) {
 			return (this -> number == v.getNumber());
+		} else if ((this->type.std::string::compare(v.getType()) == 0) && (this->type.std::string::compare("word") == 0)) {
+			return (this->word == v.getWord());
 		}
-		assert(1);
+		assert(0);
 	}
 
 	bool operator!= (Variable v) {
 		if ((this->type.std::string::compare(v.getType()) == 0) && (this->type.std::string::compare("number") == 0)) {
 			return (this->number != v.getNumber());
+		} else if ((this->type.std::string::compare(v.getType()) == 0) && (this->type.std::string::compare("word") == 0)) {
+			return (this->word != v.getWord());
 		}
-		assert(1);
+		assert(0);
 	}
 
 	bool operator> (Variable v) {
 		if ((this->type.std::string::compare(v.getType()) == 0) && (this->type.std::string::compare("number") == 0)) {
 			return (this->number > v.getNumber());
+		} else if ((this->type.std::string::compare(v.getType()) == 0) && (this->type.std::string::compare("word") == 0)) {
+			return (this->word > v.getWord());
 		}
-		assert(1);
+		assert(0);
 	}
 	bool operator< (Variable v) {
 		if ((this->type.std::string::compare(v.getType()) == 0) && (this->type.std::string::compare("number") == 0)) {
 			return (this->number < v.getNumber());
+		} else if ((this->type.std::string::compare(v.getType()) == 0) && (this->type.std::string::compare("word") == 0)) {
+			return (this->word < v.getWord());
 		}
-		assert(1);
+		assert(0);
 	}
 	bool operator>= (Variable v) {
 		if ((this->type.std::string::compare(v.getType()) == 0) && (this->type.std::string::compare("number") == 0)) {
 			return (this->number >= v.getNumber());
+		} else if ((this->type.std::string::compare(v.getType()) == 0) && (this->type.std::string::compare("word") == 0)) {
+			return (this->word >= v.getWord());
 		}
-		assert(1);
+		assert(0);
 	}
 	bool operator<= (Variable v) {
 		if ((this->type.std::string::compare(v.getType()) == 0) && (this->type.std::string::compare("number") == 0)) {
 			return (this->number <= v.getNumber());
+		} else if ((this->type.std::string::compare(v.getType()) == 0) && (this->type.std::string::compare("word") == 0)) {
+			return (this->word <= v.getWord());
 		}
-		assert(1);
+		assert(0);
 	}
 
 	bool operator&& (Variable v) {
 		if ((this->type.std::string::compare(v.getType()) == 0) && (this->type.std::string::compare("number") == 0)) {
 			return (this->number && v.getNumber());
+		} else if ((this->type.std::string::compare(v.getType()) == 0) && (this->type.std::string::compare("word") == 0)) {
+			return this->word && v.getWord();
 		}
-		assert(1);
+		assert(0);
 	}
 	bool operator|| (Variable v) {
 		if ((this->type.std::string::compare(v.getType()) == 0) && (this->type.std::string::compare("number") == 0)) {
 			return (this->number || v.getNumber());
+		} else if ((this->type.std::string::compare(v.getType()) == 0) && (this->type.std::string::compare("word") == 0)) {
+			return this->word || v.getWord();
 		}
-		assert(1);
+		assert(0);
 	}
 	bool operator! () {
 		if ((this->type.std::string::compare("number") == 0)) {
-			if (number == 0) {
-				return true;
-			}
-			return false;
+			return !this->number;
+		} else if ((this->type.std::string::compare("word") == 0)) {
+			return !this->word;
 		}
-		assert(1);
+		assert(0);
 
 	}
 };
