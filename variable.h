@@ -252,7 +252,7 @@ public:
 		return result;
 		*/
 
-		int i, j;
+		int i;
 		char result[1024];	//TODO malloc + realloc 
 
 		strcpy(result, sentence[sentence.size() - 1]);
@@ -470,6 +470,10 @@ std::ostream& operator<<(std::ostream& os, Variable v){
 	}
 	else if (v.getType() == "number") {
 		os << v.getNumber();
+	}
+	else if (v.getType() == "list") {
+		for (int i = 0; i < v.getList().size(); i++)
+			os << v.getList()[i] << ' ';
 	}
 	return os;
 }
