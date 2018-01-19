@@ -5,11 +5,11 @@ public:
 	Print() {}
 
 	void operator= (Variable& item) {
-		std::cout << item;
+		std::cout << item.getSentenceAsString();
 	}
 
 	void operator= (char* string) {
-		std::cout << string;
+		turtle_draw_label(string);
 	}
 
 };
