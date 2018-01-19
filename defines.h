@@ -1,10 +1,10 @@
 #include <iostream>
 #include <vector>
 #include "./variable.h"
+#include "./GUI_demo/hy352_gui.h"
 #include "./Array.h"
 #include "./statement.h"
 #include "./Print.h"
-#include "./GUI_demo/hy352_gui.h"
 #include "./move.h"
 #include "./list.h"
 #include <string>
@@ -62,7 +62,7 @@ vector<Statement> statements;
 
 /*ELEM SHOW*/
 #define ELEM
-#define SHOW
+#define SHOW cout << 
 
 /*BOOL OPERATORS*/
 #define AND(leftCondition, rightCondition) leftCondition && rightCondition
@@ -75,7 +75,7 @@ vector<Statement> statements;
 #define RIGHT Move("right")=
 #define LEFT Move("left")=
 #define CENTER turtle_go_to_center();
-#define SETXY SETX SETY	//TODO SETXY 50 50
+#define SETXY Move("xy")=
 #define SETX Move("x")=
 #define SETY Move("y")=
 #define CIRCLE Move("circle")=
