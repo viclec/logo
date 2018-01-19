@@ -9,23 +9,23 @@ MAKE args = LIST[
 ]
 
 TO draw_square WITH args FSTART
-	SETPENCOLOR ARG(2)
-	REPEAT 4 TIMES DO
-				SHOW ARG(1)
-				SHOW ARG(2)
-		FORWARD ARG(1)
-		RIGHT 90
-	END
+SETPENCOLOR ARG(2)
+REPEAT 4 TIMES DO
+SHOW ARG(1)
+SHOW ARG(2)
+FORWARD ARG(1)
+RIGHT 90
+END
 FEND
 
 START_PROGRAM
-
-	REPEAT 2 TIMES	DO
+/***
+	REPEAT 36 TIMES	DO
 		CALL draw_square(LIST[PRODUCT(NUMBER:120, NUMBER : 1),
 			LIST[SUM(NUMBER:0, NUMBER : 0), NUMBER:0, NUMBER : 255]])
 						RIGHT 10
 						END
-				/*** call function example***/
+				 call function example***/
 
 /*
 	FORWARD 100;
