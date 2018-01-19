@@ -7,6 +7,7 @@ private:
 	int lineNumber;
 	int id;
 	static int count;
+	Variable list;
 public:
 	Statement(std::string type, int lineNumber) : type(type), lineNumber(lineNumber), id(++count){
 		type.compare("repeat") == 0 ? repcount = 0 : repcount = -1 ;
@@ -15,6 +16,11 @@ public:
 	
 	int getRepCount(void){
 		return repcount;
+	}
+
+	Variable getCurrentElement(void) {
+		assert(repcount <= list.getList().size());
+		return list.getList()[repcount];
 	}
 
 	void initRepCount(void) {
