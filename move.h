@@ -1,8 +1,31 @@
 class Move {
 private:
 	const char* moveType;
+	int x;
+	int y;
 public:
 	Move(const char* move) : moveType(move) {};
+
+	void Move::operator , (Variable number) {
+		std::cout << "XY" << std::endl;
+	}
+
+	void Move::operator , (int number) {
+		std::cout << "XY" << std::endl;
+	}
+
+	void Move::operator = (Variable v) {
+		if (moveType == "x") {
+			turtle_go_to_position(v.getNumber(), v.getNumber());
+		}
+		else if (moveType == "y") {
+			turtle_go_to_position(v.getNumber(), v.getNumber());
+		}
+		else if (moveType == "xy") {
+			//turtle_go_to_position(v.getNumber(), v.getNumber());
+			x = v.getNumber();
+		}
+	}
 
 	void Move::operator = (int number) {
 		if (moveType == "left") {
@@ -20,18 +43,8 @@ public:
 		else if (moveType == "circle") {
 			turtle_draw_circle(number);
 		}
-		else if (moveType == "x") {
-			turtle_mv_backward(number);
-		}
-		else if (moveType == "y") {
-			turtle_mv_backward(number);
-		}
 		return;
 	}
-
-	void Move::operator , (int y) {
-		turtle_mv_backward(y);
-	};
 
 };
 
