@@ -58,7 +58,7 @@ vector<Statement> statements;
 #define REPCOUNT ;statements.back().getRepCount();
 
 /*FOREACH*/
-#define FOREACH ;statements.push_back(Statement("foreach", __LINE__);  for(auto i = 0;
+#define FOREACH ;statements.push_back(Statement("foreach", __LINE__);  for(auto i :
 
 /*ELEM SHOW*/
 #define ELEM
