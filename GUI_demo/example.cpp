@@ -1,4 +1,4 @@
-#include "./hy352_gui.h"
+#include "../defines.h"
 #ifdef APPLE
 #include <allegro5/allegro.h> //**
 #endif
@@ -8,34 +8,70 @@ int main(int argc, char **argv)
 	const char *msg = "START";
 	init_GUI();
 
-	set_screen_color(255, 255, 255);
-	set_pen_color(0, 0, 0);
-	set_pen_thickness(0.1f);
+	START_PROGRAM
 
-	turtle_draw_label(msg);
+		FORWARD 100;
+		LEFT 100;
+		FORWARD 100;
+		CIRCLE 40;
 
-	for (int i = 0; i < 360; i++)
-	{
-		turtle_mv_backward(2);
-		turtle_rotate(1);
-	}
+		MAKE number = NUMBER:31
+			MAKE string = WORD : "sassy"
+			MAKE boolean = BOOLEAN : true
 
-	pen_up();
-	turtle_go_to_position(200, 200);
-	pen_down();
-	turtle_draw_label("BREAKPOINT");
-	for (int i = 0; i < 4; i++)
-	{
-		turtle_mv_forward(100);
-		turtle_rotate(90);
-	}
+			MAKE list = LIST[NUMBER:12, NUMBER : 0, NUMBER : 0];
 
-	pen_up();
-	turtle_go_to_position(200, 300);
-	pen_down();
 
-	msg = "END";
-	turtle_draw_label(msg);
+			IF(!(number) || !(number == (NUMBER:31))) DO	//TODO string comparisson 
+			cout << "True";
+		ELIF number >= (NUMBER:21) DO
+			cout << "False";
+		ELSE
+			cout << "ELSE";
+		END
+
+			MAKE S = LIST[WORD:"test", NUMBER : 222, number, NUMBER : 444, string];
+		MAKE MAN = LIST[string, S, NUMBER:666];
+		MAKE SEN = SENTENCE(WORD: "This", WORD : " is", string);
+
+		SHOW SEN;
+
+		ARRAY SIZE : 20;
+
+		MAKE a = ARRAY{
+			number, string, MAN, SEN
+		};
+
+		PRINT SEN;
+
+
+		MAKE LALA = ITEM({ 2, 3 }, MAN)
+
+
+			SETITEM({ 2,1 }, MAN, WORD: "fea")
+			//ama to lala exei test tote exei mono value, ama exei fea exei reference
+
+			MAKE aaa = SENTENCE(string, string, WORD: "is the", WORD : "NEXT big", WORD : "thing");
+
+		PRINT string;
+		PRINT aaa;
+		PRINT WORD : "FEA34 fe eaf";
+
+		MAKE av = DIFFERENCE(NUMBER:12, LALA);
+
+		MAKE fdsa = MODULO(NUMBER:12, NUMBER : 3);
+
+		MAKE test = NUMBER:32;
+
+		ASSIGN fdsa = DIFFERENCE(NUMBER:12, LALA);
+
+
+		REPEAT 5 TIMES DO
+			FORWARD 50;
+			LEFT 10;
+		END
+
+	END_PROGRAM
 
 	destroy_GUI();
 	return 0;
