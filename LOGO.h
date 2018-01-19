@@ -1,3 +1,6 @@
+#ifdef APPLE
+#include <allegro5/allegro.h> //**
+#endif
 #include <iostream>
 #include <vector>
 #include <string>
@@ -16,10 +19,10 @@ vector<Statement> statements;
 
 /*VARIABLES*/
 #define MAKE ;Variable
-#define NUMBER Variable()=false?-1
-#define WORD Variable()=false?""
-#define BOOLEAN Variable()=false?0
-#define LIST Variable()
+#define NUMBER Variable("number")=false?-1
+#define WORD Variable("word")=false?""
+#define BOOLEAN Variable("number")=false?0
+#define LIST Variable("list")
 #define ARRAY Variable("array")=
 #define SIZE false?-1
 #define SENTENCE(...) Sentence<Variable>(__VA_ARGS__)
@@ -65,13 +68,13 @@ vector<Statement> statements;
 #define SHOW cout << 
 
 /*PROGRAM DEFINES*/
-#define START_PROGRAM
-#define END_PROGRAM
+#define START_PROGRAM int main(int argc, char **argv){const char *msg = "START";init_GUI();
+#define END_PROGRAM destroy_GUI();return 0;}
 
 /*BOOL OPERATORS*/
-#define AND(...) And<Variable>(__VA_ARGS__)
-#define OR(leftCondition, rightCondition) leftCondition || rightCondition
-#define NOT(condition) !condition
+#define AND(...) And<bool>(__VA_ARGS__)
+#define OR(...) Or<bool>(__VA_ARGS__)
+#define NOT(...) Not(__VA_ARGS__)
 
 /*TURTLE MOVEMENTS AND METHODS*/
 #define FORWARD Move("forward")=
@@ -136,11 +139,23 @@ Variable setItem(initializer_list<T> l, Variable& var, Variable& value)
 
 	std::vector<Variable> array;
 
-	array.push_back(var.getList()[*(it++) - 1]);
+
+	if (var.getType() == "array") {
+		array.push_back(var.getArray()[*(it++) - 1]);
+	}
+	else {
+		array.push_back(var.getList()[*(it++) - 1]);
+	}
 
 	for (i = 0; it != end; it++, i++) {
-		array.push_back(array[i].getList()[*(it)-1]);
+		if (array[i].getType() == "array") {
+			array.push_back(array[i].getArray()[*(it)-1]);
+		}
+		else {
+			array.push_back(array[i].getList()[*(it)-1]);
+		}
 	}
+
 	array.pop_back();
 	array.push_back(value);
 
@@ -161,12 +176,25 @@ void printArgs(initializer_list <int> iterator, Variable arr[]) {
 };
 
 template <typename Var>
-Variable And(const Var v) {
-	return v;
+bool And(bool b) {
+	return b;
 }
 template <typename... List>
-bool And(Variable v, List... l) {
-	return v && And<Variable>(l...);
+bool And(bool b, List... l) {
+	return b && And<bool>(l...);
+}
+
+template <typename Var>
+bool Or(bool b) {
+	return b;
+}
+template <typename... List>
+bool Or(bool b, List... l) {
+	return b || Or<bool>(l...);
+}
+
+bool Not(bool b) {
+	return !b;
 }
 
 template <typename Var>
