@@ -7,7 +7,7 @@ START_PROGRAM
 	FORWARD 100;
 	CIRCLE 40;
 
-	MAKE number = NUMBER:31
+	MAKE numberz = NUMBER:31
 		MAKE string = WORD : "sassy"
 		MAKE boolean = BOOLEAN : true
 
@@ -22,7 +22,7 @@ START_PROGRAM
 		PRINT WORD : "ELSE";
 	END
 
-		MAKE S = LIST[WORD:"test", NUMBER : 222, number, NUMBER : 444, string];
+		MAKE S = LIST[WORD:"test", NUMBER : 222, numberz, NUMBER : 444, string];
 	MAKE MAN = LIST[string, S, NUMBER:666];
 	MAKE SEN = SENTENCE(WORD: "This", WORD : " is ", string);
 
@@ -31,7 +31,7 @@ START_PROGRAM
 	MAKE b = ARRAY SIZE : 20;
 
 	MAKE c = ARRAY{
-		number, string, MAN, number
+		numberz, string, MAN, numberz
 	};
 
 	MAKE a;
@@ -59,5 +59,29 @@ START_PROGRAM
 		FORWARD 50;
 		LEFT 10;
 	END
+
+		//define number variable with value 21
+		MAKE number = NUMBER: 21
+		//define hello variable with value “hello”
+		MAKE hello = WORD : "hello"
+		//define myMoves variable contains list of turtle moves
+		MAKE myMoves = LIST[ //BUG vazei 5 items anti gia 3. vazei extra WORD:"FORWARD", NUMBER: 100
+			LIST[WORD:"FORWARD", NUMBER : 100],
+				LIST[WORD:"LEFT", NUMBER : 90],
+				LIST[WORD:"FORWARD", NUMBER : 100]
+		]
+		//define array variable with empty array
+				MAKE array = ARRAY{
+					number,
+					hello,
+					NUMBER: 12,
+							BOOLEAN : TRUE,
+					ARRAY{
+						myMoves,
+						LIST[WORD:"BACK", NUMBER : 100]
+					}
+				};
+				//define book variable with sentence type
+			MAKE book = SENTENCE(hello, WORD: "hello!")
 
 END_PROGRAM
