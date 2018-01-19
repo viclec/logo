@@ -8,11 +8,13 @@ protected:
 	bool boolean;
 	std::vector<char*> sentence;
 	std::vector<Variable> list;
+	std::vector<Variable> array;
 	std::string type;
+	int arraySize;
 public:
 	bool isValid = 1;
 	Variable() {};
-	Variable(char* word) : word(word) {};
+	Variable(char* type) : type(std::string(type)) {};
 	Variable(double number) : number(number) {};
 	Variable(int number) : number(number) {};
 	Variable(bool boolean) : boolean(boolean) {};
@@ -94,6 +96,10 @@ public:
 		return (strcmp(word, this->word) > 0 && word != NULL);
 	}
 
+	void setList(std::vector<Variable> newList) {
+		list = newList;
+	}
+
 	Variable& Variable::operator= (Variable &v) {
 		if (this->type.std::string::compare("number") == 0) {
 			this -> number = v.getNumber();
@@ -107,6 +113,15 @@ public:
 		return *this;
 	}
 
+	/*
+	template <Array Arr>
+	Variable& Variable::operator= (Arr v) {
+	this->list = v.getArray();
+		return *this;
+	}
+	*/
+
+
 	Variable& Variable::operator= (Variable* v) {
 		int iterator = 0;
 		Variable* tmp = &v[iterator];
@@ -118,7 +133,7 @@ public:
 	}
 	
 	Variable& operator= (std::vector<Variable> array) {
-	
+		return *this;
 	}
 
 	//Variable& Variable::operator= (List &l) {
@@ -132,8 +147,19 @@ public:
 	}
 
 	Variable& Variable::operator= (int a) {
-		this->number = a;
-		this->type = "number";
+		if (type == "array")
+			this->arraySize = a;
+		else
+			this->number = a;
+		return *this;
+	}
+
+	template <typename T>
+	Variable& operator=(std::initializer_list<T> l) {
+		arraySize = l.size();
+
+		array.insert(array.end(), l.begin(), l.end());
+
 		return *this;
 	}
 
