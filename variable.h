@@ -198,7 +198,7 @@ public:
 		return sentence;
 	}
 
-	char* getSentenceAsString() {
+	char* getSentenceAsString() {	//TODO return string 
 		/*
 		char* result;
 		int i, j;
@@ -408,8 +408,11 @@ std::ostream& operator<<(std::ostream& os, Variable v){
 			os << v.getSentence()[--i];
 		}
 	}
-	else {
+	else if(v.getType() == "word") {
 		os << v.getWord();
+	}
+	else if (v.getType() == "number") {
+		os << v.getNumber();
 	}
 	return os;
 }
