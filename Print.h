@@ -5,7 +5,7 @@ public:
 	Print() {}
 
 	void operator= (Variable item) {
-		std::cout << item;
+		std::cout << item.getSentenceAsString();	//TODO draw label
 	}
 
 	void operator= (char* string) {
