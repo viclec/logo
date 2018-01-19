@@ -34,6 +34,10 @@ vector<Statement> statements;
 /*LIST ARGUMENTS*/
 #define ARG(iterator) ;args[i-1];
 
+/*BOOL CONSTANTS*/
+#define TRUE true
+#define FALSE false
+
 /*TURTLE MOVEMENT*/
 #define SUM(...) Sum<Variable>(__VA_ARGS__)
 #define DIFFERENCE(...) Difference<Variable>(__VA_ARGS__)
@@ -69,7 +73,7 @@ vector<Statement> statements;
 
 /*PROGRAM DEFINES*/
 #define START_PROGRAM int main(int argc, char **argv){const char *msg = "START";init_GUI();
-#define END_PROGRAM destroy_GUI();return 0;}
+#define END_PROGRAM ;destroy_GUI();return 0;}
 
 /*BOOL OPERATORS*/
 #define AND(...) And<bool>(__VA_ARGS__)
