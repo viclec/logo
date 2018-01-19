@@ -8,16 +8,26 @@ MAKE args = LIST[
 		]
 ]
 
-TO draw_square WITH args FSTART // args is a list [ length, [r,g,b] ]
+TO draw_square WITH args FSTART
 	SETPENCOLOR ARG(2)
 	REPEAT 4 TIMES DO
-	FORWARD ARG(1)
-	RIGHT 90
+				SHOW ARG(1)
+				SHOW ARG(2)
+		FORWARD ARG(1)
+		RIGHT 90
 	END
 FEND
 
 START_PROGRAM
 
+	REPEAT 2 TIMES	DO
+		CALL draw_square(LIST[PRODUCT(NUMBER:120, NUMBER : 1),
+			LIST[SUM(NUMBER:0, NUMBER : 0), NUMBER:0, NUMBER : 255]])
+						RIGHT 10
+						END
+				/*** call function example***/
+
+/*
 	FORWARD 100;
 	LEFT 100;
 	FORWARD 100;
@@ -75,8 +85,9 @@ START_PROGRAM
 		FORWARD 50;
 		LEFT 10;
 	END
+	*/
 
-		/*** 1st example on project pdf ***/
+		/*** 1st example on project pdf
 
 		//define number variable with value 21
 		MAKE number = NUMBER: 21
@@ -102,12 +113,8 @@ START_PROGRAM
 				//define book variable with sentence type
 			MAKE book = SENTENCE(hello, WORD: "hello!")
 
-				/*** call function example ***/
+				CALL draw_square()
+				1st example on project pdf ***/
 				
-			REPEAT 36 TIMES	DO
-				CALL draw_square(LIST[PRODUCT(NUMBER:12, REPCOUNT),
-					LIST[SUM(NUMBER:12, REPCOUNT), NUMBER:0, NUMBER : 0]])
-				RIGHT 10
-			END
 
 END_PROGRAM
