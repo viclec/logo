@@ -5,6 +5,10 @@ public:
 	Print() {}
 
 	void operator= (Variable item) {
+		if (item.getType() == "word") {
+			turtle_draw_label(item.getWord());
+			return;
+		}
 		turtle_draw_label(item.getSentenceAsString());
 	}
 
