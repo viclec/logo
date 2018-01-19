@@ -20,7 +20,6 @@ vector<Statement> statements;
 #define WORD Variable()=false?""
 #define BOOLEAN Variable()=false?0
 #define LIST Variable()
-//#define ARRAY Variable()=
 #define ARRAY Variable("array")=
 #define SIZE false?-1
 #define SENTENCE(...) Sentence<Variable>(__VA_ARGS__)
@@ -109,10 +108,19 @@ Variable getItem(initializer_list<T> l, Variable& var)
 	int i = 0;
 
 	std::vector<Variable> array;
-	
-	array.push_back(var.getList()[*(it++)-1]);
+	if (var.getType() == "array") {
+		array.push_back(var.getArray()[*(it++) - 1]);
+	}
+	else {
+		array.push_back(var.getList()[*(it++) - 1]);
+	}
 	for (i = 0; it != end; it++, i++) {
-		array.push_back(array[i].getList()[*(it) - 1]);
+		if (array[i].getType() == "array") {
+			array.push_back(array[i].getArray()[*(it)-1]);
+		}
+		else {
+			array.push_back(array[i].getList()[*(it)-1]);
+		}
 	}
 
 	return array[array.size() - 1];
