@@ -1,13 +1,13 @@
 #include <iostream>
 #include <vector>
+#include <string>
+#include <assert.h>
 #include "./variable.h"
 #include "./GUI_demo/hy352_gui.h"
-#include "./Array.h"
 #include "./statement.h"
 #include "./Print.h"
 #include "./move.h"
 #include "./list.h"
-#include <string>
 using namespace ::std;
 
 string statementType;
@@ -20,7 +20,8 @@ vector<Statement> statements;
 #define WORD Variable()=false?""
 #define BOOLEAN Variable()=false?0
 #define LIST Variable()
-#define ARRAY Variable a[]=
+//#define ARRAY Variable()=
+#define ARRAY Variable("array")=
 #define SIZE false?-1
 #define SENTENCE(...) Sentence<Variable>(__VA_ARGS__)
 
@@ -63,6 +64,10 @@ vector<Statement> statements;
 /*ELEM SHOW*/
 #define ELEM
 #define SHOW cout << 
+
+/*PROGRAM DEFINES*/
+#define START_PROGRAM
+#define END_PROGRAM
 
 /*BOOL OPERATORS*/
 #define AND(...) And<Variable>(__VA_ARGS__)
