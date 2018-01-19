@@ -46,10 +46,14 @@ int main(int argc, char **argv)
 	MAKE LALA = ITEM({ 2, 3 }, MAN)
 
 
-	SETITEM({ 2,1 }, MAN, WORD: "fea")
-	//ama to lala exei test tote exei mono value, ama exei fea exei reference
+		SETITEM({ 2,1 }, MAN, WORD: "fea")
+		//ama to lala exei test tote exei mono value, ama exei fea exei reference
 
-		MAKE aaa = SENTENCE(string, string, WORD: "is the", WORD:"NEXT big", WORD:"thing")
+		MAKE aaa = SENTENCE(string, string, WORD: "is the", WORD : "NEXT big", WORD : "thing");
+
+	PRINT string;
+	PRINT aaa;
+	PRINT WORD: "FEA34 fe eaf";
 
 
 
