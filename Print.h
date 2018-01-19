@@ -5,7 +5,7 @@ public:
 	Print() {}
 
 	void operator= (Variable item) {
-		std::cout << item.getSentenceAsString();	//TODO draw label
+		turtle_draw_label(item.getSentenceAsString());
 	}
 
 	void operator= (char* string) {
