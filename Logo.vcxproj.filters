@@ -57,6 +57,9 @@
     <ClInclude Include="LOGO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Function.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GUI_demo\hy352_gui.cpp">
