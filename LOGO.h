@@ -51,7 +51,7 @@ vector<Statement> statements;
 
 /*STATEMENT METHODS*/
 #define DO ){	//TODO add ; for repeats 
-#define END } statements.pop_back();
+#define END ;} statements.pop_back();
 
 /*IF/ELIF STATEMENTS*/
 #define IF ;statements.push_back(Statement("if", __LINE__)); if(
@@ -62,7 +62,7 @@ vector<Statement> statements;
 #define REPEAT ;statements.push_back(Statement("repeat", __LINE__)); for(statements.back().initRepCount();
 #define TIMES != statements.back().getRepCount(); statements.back().incrementRepCount()
 #define WHILE false?false:
-#define REPCOUNT ;statements.back().getRepCount();
+#define REPCOUNT statements.back().getRepCount()
 
 /*FOREACH*/
 #define FOREACH ;statements.push_back(Statement("foreach", __LINE__);  for(auto i :
@@ -81,16 +81,16 @@ vector<Statement> statements;
 #define NOT(...) Not(__VA_ARGS__)
 
 /*TURTLE MOVEMENTS AND METHODS*/
-#define FORWARD Move("forward")=
-#define BACK Move("back")=
-#define RIGHT Move("right")=
-#define LEFT Move("left")=
-#define CENTER turtle_go_to_center();
-#define SETXY Move("xy")=
-#define SETX Move("x")=
-#define SETY Move("y")=
-#define CIRCLE Move("circle")=
-#define PRINT Print()=
+#define FORWARD ;Move("forward")=
+#define BACK ;Move("back")=
+#define RIGHT ;Move("right")=
+#define LEFT ;Move("left")=
+#define CENTER ;turtle_go_to_center();
+#define SETXY ;Move("xy")=
+#define SETX ;Move("x")=
+#define SETY ;Move("y")=
+#define CIRCLE ;Move("circle")=
+#define PRINT ;Print()=
 
 /*TURTLE MOVEMENT*/
 #define SETPENCOLOR set_pen_color
@@ -100,12 +100,12 @@ vector<Statement> statements;
 #define PENUP pen_up();
 
 /*FUNCTIONS*/
-#define TO void
+#define TO ;void
 #define WITH (
 #define FSTART ){
 #define FEND }
 #define RETURN return;
-#define CALL(...) (__VA_ARGS__); funcArgs = __VA_ARGS__;
+#define CALL
 
 template <typename T>
 Variable getItem(initializer_list<T> l, Variable& var)
