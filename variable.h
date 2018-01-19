@@ -378,6 +378,16 @@ bool operator>(char* word, Variable rhs) {
 }
 
 
-
-
+std::ostream& operator<<(std::ostream& os, Variable v){
+	if (v.getSentence().size() > 0) {
+		int i = v.getSentence().size();
+		while (i != 0) {
+			os << v.getSentence()[--i];
+		}
+	}
+	else {
+		os << v.getWord();
+	}
+	return os;
+}
 #endif  __VARIABLE__

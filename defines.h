@@ -3,6 +3,7 @@
 #include "./variable.h"
 #include "./Array.h"
 #include "./statement.h"
+#include "./Print.h"
 #include "./GUI_demo/hy352_gui.h"
 #include "./move.h"
 #include "./list.h"
@@ -78,7 +79,7 @@ vector<Statement> statements;
 #define SETX Move("x")=
 #define SETY Move("y")=
 #define CIRCLE Move("circle")=
-#define PRINT_WORD turtle_draw_label
+#define PRINT Print()=
 
 /*TURTLE MOVEMENT*/
 #define SETPENCOLOR set_pen_color
