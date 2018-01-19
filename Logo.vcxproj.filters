@@ -59,10 +59,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="GUI_demo\hy352_gui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GUI_demo\hy352_gui.cpp">
+    <ClCompile Include="GUI_demo\example.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
