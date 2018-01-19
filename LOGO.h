@@ -33,7 +33,7 @@ vector<Statement> statements;
 #define SETITEM(...) setItem<int>(__VA_ARGS__);	//TODO
 
 /*LIST ARGUMENTS*/
-//#define ARG(i) (args.getList()[i-1].getType().std::string::compare("number")==0)?args.getList()[i-1].getNumber():args.getList()[i-1];
+//#define ARG(i) (args.getList()[i-1].getType().std::string::compare("number")==0)?args.getList()[i-1].getNumber():23;
 //#define ARG(i) args.getList()[i-1];
 #define ARG(i) args.getList()[i-1].getNumber();
 
@@ -65,7 +65,7 @@ vector<Statement> statements;
 #define REPEAT ;statements.push_back(Statement("repeat", __LINE__)); for(statements.back().initRepCount();
 #define TIMES != statements.back().getRepCount(); statements.back().incrementRepCount()
 #define WHILE false?false:
-#define REPCOUNT statements.back().getRepCount()
+#define REPCOUNT Variable("number")=statements.back().getRepCount()
 
 /*FOREACH*/
 #define FOREACH ;statements.push_back(Statement("foreach", __LINE__);  for(auto &i :	//TODO
@@ -174,8 +174,8 @@ Variable setItem(initializer_list<T> l, Variable& var, Variable& value)
 }
 
 void printArgs(initializer_list <int> iterator, Variable arr[]) {
-	const int*       it = iterator.begin();  // raw pointer!
-	const int* const end = iterator.end();    // raw pointer!
+	const int*       it = iterator.begin();
+	const int* const end = iterator.end();
 
 	std::vector<int> v;
 
