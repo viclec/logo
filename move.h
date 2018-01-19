@@ -30,6 +30,7 @@ public:
 		}
 		else if (moveType == "screenColor") {
 			assert(v.getList().size() == 3);
+			unsigned int r = v.getList()[0].getNumber(), g = v.getList()[1].getNumber(), b = v.getList()[2].getNumber();
 			set_screen_color(v.getList()[0].getNumber(), v.getList()[1].getNumber(), v.getList()[2].getNumber());
 		}
 		else if (moveType == "setPenColor") {
