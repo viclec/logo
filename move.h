@@ -25,6 +25,19 @@ public:
 			//turtle_go_to_position(v.getNumber(), v.getNumber());
 			x = v.getNumber();
 		}
+		else if (moveType == "screenColor") {
+			assert(v.getList().size() == 3);
+			set_screen_color(v.getList()[0].getNumber(), v.getList()[1].getNumber(), v.getList()[2].getNumber());
+		}
+		else if (moveType == "setPenColor") {
+			assert(v.getList().size() == 3);
+			int r = v.getList()[0].getNumber(), g = v.getList()[1].getNumber(), b = v.getList()[2].getNumber();
+			set_pen_color(r, g, b);
+		}
+		else if (moveType == "setPenSize") {
+			assert(v.getList().size() == 1);
+			set_pen_thickness(v.getNumber());
+		}
 	}
 
 	void Move::operator = (int number) {
