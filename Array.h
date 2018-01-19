@@ -3,6 +3,7 @@
 class Array : protected Variable {
 private:
 	unsigned size = 0;
+	std::vector<Variable> array;
 public:
 	Array() {
 		Variable::Variable();
@@ -18,6 +19,33 @@ public:
 	}
 	Array(bool boolean){
 		Variable::Variable(boolean);
+	}
+
+	Array& operator=(Variable v) {
+		this->size = v.getNumber();
+		return *this;
+	}
+	
+	Array& operator=(int number) {
+		this->size = number;
+		return *this;
+	}
+
+	Array& operator=(Variable* v) {
+		return *this;
+	}
+
+	template <typename T>
+	Array& operator=(initializer_list<T> l) {
+		size = l.size();
+
+		array.insert(array.end(), l.begin(), l.end());
+
+		return *this;
+	}
+
+	std::vector<Variable> getArray() {
+		return array;
 	}
 	
 	/* 8elei argument enw de 8elw na tou valw pi8ano na valoyme argument k na exei periptwsh p einai adeio. */
@@ -45,3 +73,8 @@ public:
 	}
 	*/
 };
+
+Variable& Variable::operator= (Variable& v1, Array v2) {
+	v1.setList(v2.getArray());
+	return v1;
+}
