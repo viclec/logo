@@ -1,5 +1,21 @@
 #include "../LOGO.h"
 
+/*** function example ***/
+MAKE args = LIST[
+	NUMBER:3,
+		LIST[
+			NUMBER:255, NUMBER : 255, NUMBER : 33
+		]
+]
+
+TO draw_square WITH args FSTART // args is a list [ length, [r,g,b] ]
+	SETPENCOLOR ARG(2)
+	REPEAT 4 TIMES DO
+	FORWARD ARG(1)
+	RIGHT 90
+	END
+FEND
+
 START_PROGRAM
 
 	FORWARD 100;
@@ -60,6 +76,8 @@ START_PROGRAM
 		LEFT 10;
 	END
 
+		/*** 1st example on project pdf ***/
+
 		//define number variable with value 21
 		MAKE number = NUMBER: 21
 		//define hello variable with value “hello”
@@ -83,5 +101,13 @@ START_PROGRAM
 				};
 				//define book variable with sentence type
 			MAKE book = SENTENCE(hello, WORD: "hello!")
+
+				/*** call function example ***/
+				
+			REPEAT 36 TIMES	DO
+				CALL draw_square(LIST[PRODUCT(NUMBER:12, REPCOUNT),
+					LIST[SUM(NUMBER:12, REPCOUNT), NUMBER:0, NUMBER : 0]])
+				RIGHT 10
+			END
 
 END_PROGRAM
