@@ -7,6 +7,7 @@
 #include <assert.h>
 #include "./variable.h"
 #include "./GUI_demo/hy352_gui.h"
+#include "./Function.h"
 #include "./statement.h"
 #include "./Print.h"
 #include "./move.h"
@@ -29,10 +30,10 @@ vector<Statement> statements;
 
 /*ARRAY ITEMS*/
 #define ITEM(...) getItem<int>(__VA_ARGS__);
-#define SETITEM(...) setItem<int>(__VA_ARGS__);
+#define SETITEM(...) setItem<int>(__VA_ARGS__);	//TODO
 
 /*LIST ARGUMENTS*/
-#define ARG(iterator) ;args[i-1];
+#define ARG(i) args.getList()[i-1].getValue();
 
 /*BOOL CONSTANTS*/
 #define TRUE true
@@ -65,10 +66,10 @@ vector<Statement> statements;
 #define REPCOUNT statements.back().getRepCount()
 
 /*FOREACH*/
-#define FOREACH ;statements.push_back(Statement("foreach", __LINE__);  for(auto i :
+#define FOREACH ;statements.push_back(Statement("foreach", __LINE__);  for(auto i :	//TODO
 
 /*ELEM SHOW*/
-#define ELEM
+#define ELEM	//TODO
 #define SHOW cout << 
 
 /*PROGRAM DEFINES*/
@@ -86,26 +87,27 @@ vector<Statement> statements;
 #define RIGHT ;Move("right")=
 #define LEFT ;Move("left")=
 #define CENTER ;turtle_go_to_center();
-#define SETXY ;Move("xy")=
+#define SETXY ;Move("xy")=	//TODO
 #define SETX ;Move("x")=
 #define SETY ;Move("y")=
 #define CIRCLE ;Move("circle")=
 #define PRINT ;Print()=
 
 /*TURTLE MOVEMENT*/
-#define SETPENCOLOR set_pen_color
-#define SETSCREENCOLOR set_screen_color
-#define SETPENSIZE set_pen_thickness
+#define SETPENCOLOR Move("setPenColor")=
+#define SETSCREENCOLOR Move("screenColor")=
+#define SETPENSIZE Move("setPenSize")=
 #define PENDOWN pen_down();
 #define PENUP pen_up();
 
 /*FUNCTIONS*/
+//#define TO ;Function(
 #define TO ;void
-#define WITH (
-#define FSTART ){
+#define WITH (Variable args){
+#define FSTART ;
 #define FEND }
-#define RETURN return;
-#define CALL
+#define RETURN ;return;
+#define CALL ;
 
 template <typename T>
 Variable getItem(initializer_list<T> l, Variable& var)
