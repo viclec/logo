@@ -33,9 +33,6 @@
     <ClInclude Include="LOGO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="headers\Function.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="headers\Move.h">
       <Filter>Header Files</Filter>
     </ClInclude>

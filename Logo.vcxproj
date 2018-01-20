@@ -74,7 +74,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="headers\Function.h" />
     <ClInclude Include="headers\Move.h" />
     <ClInclude Include="headers\Print.h" />
     <ClInclude Include="headers\Statement.h" />
