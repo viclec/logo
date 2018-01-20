@@ -10,7 +10,7 @@ private:
 	Variable list;
 public:
 	Statement(std::string type, int lineNumber) : type(type), lineNumber(lineNumber), id(++count){
-		type.compare("repeat") == 0 ? repcount = 0 : repcount = -1 ;
+		type.compare("repeat") == 0 || type.compare("foreach") == 0 ? repcount = 0 : repcount = -1 ;
 	}
 	~Statement(){}
 	
