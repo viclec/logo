@@ -16,7 +16,6 @@ using namespace ::std;
 
 string statementType;
 vector<Statement> statements;
-//List funcArgs;
 
 /*VARIABLES*/
 #define MAKE ;Variable
@@ -101,7 +100,6 @@ vector<Statement> statements;
 #define PENUP ;pen_up();
 
 /*FUNCTIONS*/
-//#define TO ;Function(
 #define TO ;void
 #define WITH (Variable args){
 #define FSTART ;
@@ -170,16 +168,6 @@ Variable setItem(initializer_list<T> l, Variable& var, Variable& value)
 	return Variable();
 
 }
-
-void printArgs(initializer_list <int> iterator, Variable arr[]) {
-	const int*       it = iterator.begin();
-	const int* const end = iterator.end();
-
-	std::vector<int> v;
-
-	for (; it != end; ++it)
-		v.push_back(*it);
-};
 
 template <typename Var>
 bool And(bool b) {
@@ -259,10 +247,4 @@ Var Sentence(Var v, List... l) {
 	v << Sentence<Variable>(l...);
 	return v;
 }
-
-/* ################################################ */
-
-std::vector<Variable>* new_list() {
-	return new std::vector<Variable>;
-} 
 
