@@ -41,6 +41,20 @@ public:
 		else if (moveType == "setPenSize") {
 			assert(v.getList().size() == 1);
 			set_pen_thickness(v.getNumber());
+		}else if (moveType == "left") {
+			turtle_rotate(-v.getNumber());
+		}
+		else if (moveType == "right") {
+			turtle_rotate(v.getNumber());
+		}
+		else if (moveType == "forward") {
+			turtle_mv_forward(v.getNumber());
+		}
+		else if (moveType == "back") {
+			turtle_mv_backward(v.getNumber());
+		}
+		else if (moveType == "circle") {
+			turtle_draw_circle(v.getNumber());
 		}
 	}
 
