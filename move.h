@@ -6,23 +6,8 @@ private:
 public:
 	Move(const char* move) : moveType(move) {};
 
-	void Move::operator , (Variable number) {
-		std::cout << "XY" << std::endl;
-	}
-
-	void Move::operator , (int number) {
-		std::cout << "XY" << std::endl;
-	}
-
 	void Move::operator = (Variable v) {
-		if (moveType == "x") {
-			turtle_go_to_position(v.getNumber(), v.getNumber());
-		}
-		else if (moveType == "y") {
-			turtle_go_to_position(v.getNumber(), v.getNumber());
-		}
-		else if (moveType == "xy") {
-			//turtle_go_to_position(v.getNumber(), v.getNumber());
+		if (moveType == "xy") {
 			x = v.getNumber();
 			y = v.getNumber();
 

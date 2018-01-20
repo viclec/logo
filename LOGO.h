@@ -68,7 +68,7 @@ vector<Statement> statements;
 #define REPCOUNT (Variable("number")=statements.back().getRepCount())
 
 /*FOREACH*/
-#define FOREACH ;statements.push_back(Statement("foreach", __LINE__));  for(auto &i :	//TODO
+#define FOREACH ;statements.push_back(Statement("foreach", __LINE__));  for(auto &i :
 #define ELEM i
 
 /*SHOW*/
@@ -90,8 +90,6 @@ vector<Statement> statements;
 #define LEFT ;Move("left")=
 #define CENTER ;turtle_go_to_center();
 #define SETXY ;Move("xy")=
-#define SETX ;Move("x")=
-#define SETY ;Move("y")=
 #define CIRCLE ;Move("circle")=
 #define PRINT ;Print()=
 
