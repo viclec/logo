@@ -65,7 +65,7 @@ vector<Statement> statements;
 #define REPEAT ;statements.push_back(Statement("repeat", __LINE__)); for(statements.back().initRepCount();
 #define TIMES != statements.back().getRepCount(); statements.back().incrementRepCount()
 #define WHILE false?false:
-#define REPCOUNT Variable("number")=statements.back().getRepCount()
+#define REPCOUNT (Variable("number")=statements.back().getRepCount())
 
 /*FOREACH*/
 #define FOREACH ;statements.push_back(Statement("foreach", __LINE__));  for(auto &i :	//TODO
