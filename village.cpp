@@ -23,10 +23,10 @@ FEND
 
 TO spiti WITH args FSTART
 	LEFT 90
-	CALL spiticabrio(LIST[WORD:"fa"])
+	CALL spiticabrio()
 	FORWARD 20
 	RIGHT 30
-	CALL stegi(LIST[WORD:"fa"])
+	CALL stegi()
 	LEFT 30
 	BACK 20
 	RIGHT 90
@@ -34,13 +34,13 @@ FEND
 
 TO xorio WITH args FSTART
 	REPEAT 3 TIMES DO
-		CALL lofos(LIST[WORD:"fa"])
-		CALL spiti(LIST[WORD: "fa"])
+		CALL lofos()
+		CALL spiti()
 	END
-	CALL lofos(LIST[WORD:"fa"])
+	CALL lofos()
 FEND
 
 START_PROGRAM
 	SETPENCOLOR LIST[NUMBER: 100, NUMBER: 100, NUMBER: 100]
-	CALL xorio(LIST[WORD: "fa"])
+	CALL xorio()
 END_PROGRAM

@@ -1,7 +1,7 @@
 #include "./LOGO.h"
 
 START_PROGRAM
-	MAKE turtleMoves = LIST[	//TODO leftmost item has bigger list than it should
+	MAKE turtleMoves = LIST[
 		ARRAY{ WORD: "FORWARD", NUMBER : 100 },
 			ARRAY{ WORD: "RIGHT", NUMBER : 90 },
 			ARRAY{ WORD: "FORWARD", NUMBER : 100 },
