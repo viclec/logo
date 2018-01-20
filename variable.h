@@ -151,8 +151,10 @@ public:
 	Variable& Variable::operator= (int a) {
 		if (type == "array")
 			this->arraySize = a;
-		else
+		else {
 			this->number = a;
+			this->type = "number";
+		}
 		return *this;
 	}
 
