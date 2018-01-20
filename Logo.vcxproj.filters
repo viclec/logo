@@ -65,7 +65,7 @@
     <ClCompile Include="GUI_demo\hy352_gui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="turlemoves.cpp">
+    <ClCompile Include="recolor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

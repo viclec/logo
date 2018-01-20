@@ -94,7 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GUI_demo\hy352_gui.cpp" />
-    <ClCompile Include="turlemoves.cpp" />
+    <ClCompile Include="recolor.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

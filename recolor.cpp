@@ -17,13 +17,29 @@ TO bam WITH args FSTART
 	MAKE arg5 = ARG(5)
 	MAKE arg6 = ARG(6)
 
-	REPEAT arg6 TIMES DO	//TODO fix error: argX vars don't have types
-		MAKE color = ITEM({ 4 }, colors)	//TODO fix error: list Variable has to clean list when at far left
-		SETSCREENCOLOR color
+	MAKE color
+	MAKE mod
+
+	REPEAT arg6 TIMES DO
+		ASSIGN mod = MODULO(REPCOUNT, NUMBER:6)
+		IF mod == 0 DO
+			ASSIGN color = ITEM({ 1 }, colors)
+		ELIF mod == 1 DO
+			ASSIGN color = ITEM({ 2 }, colors)
+		ELIF mod == 2 DO
+			ASSIGN color = ITEM({ 3 }, colors)
+		ELIF mod == 3 DO
+			ASSIGN color = ITEM({ 4 }, colors)
+		ELIF mod == 4 DO
+			ASSIGN color = ITEM({ 5 }, colors)
+		ELSE
+			ASSIGN color = ITEM({ 6 }, colors)
+		END
+		SETPENCOLOR color
 		RIGHT arg3
-		REPEAT arg1 TIMES DO	//TODO fix error: argX vars don't have types
+		REPEAT arg1 TIMES DO
 			FORWARD arg2
-			RIGHT QUOTIENT(NUMBER:360,arg1)	//TODO fix error: argX vars don't have types
+			RIGHT QUOTIENT(NUMBER:360,arg1)
 		END
 		ASSIGN arg2 = SUM(arg2, arg4)
 		ASSIGN arg1 = arg1 + arg5
@@ -33,5 +49,5 @@ FEND
 
 
 START_PROGRAM
-	CALL bam(LIST[NUMBER:21, NUMBER : 21, NUMBER : 21, NUMBER : 21, NUMBER : 21, NUMBER : 21])
+	CALL bam(LIST[NUMBER:5, NUMBER : 4, NUMBER : 3, NUMBER : 5, NUMBER : 0, NUMBER : 35])
 END_PROGRAM
