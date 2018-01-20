@@ -55,7 +55,7 @@ vector<Statement> statements;
 /*IF/ELIF STATEMENTS*/
 #define IF ;statements.push_back(Statement("if", __LINE__)); if(
 #define ELIF ;} else if(
-#define ELSE ;} else if(true){
+#define ELSE ;} else {
 
 /*REPEAT WHILE*/
 #define REPEAT ;statements.push_back(Statement("repeat", __LINE__)); for(statements.back().initRepCount();
