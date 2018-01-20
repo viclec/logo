@@ -93,8 +93,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GUI_demo\example.cpp" />
     <ClCompile Include="GUI_demo\hy352_gui.cpp" />
+    <ClCompile Include="turlemoves.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
