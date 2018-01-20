@@ -68,7 +68,7 @@ vector<Statement> statements;
 #define ELEM i
 
 /*SHOW*/
-#define SHOW cout << 
+#define SHOW ;Print("console")=false?false
 
 /*PROGRAM DEFINES*/
 #define START_PROGRAM int main(int argc, char **argv){const char *msg = "START";init_GUI();
@@ -87,7 +87,7 @@ vector<Statement> statements;
 #define CENTER ;turtle_go_to_center();
 #define SETXY ;Move("xy")=
 #define CIRCLE ;Move("circle")=
-#define PRINT ;Print()=
+#define PRINT ;Print("bitmap")=
 
 /*TURTLE MOVEMENT*/
 #define SETPENCOLOR ;Move("setPenColor")=
@@ -98,7 +98,7 @@ vector<Statement> statements;
 
 /*FUNCTIONS*/
 #define TO ;void
-#define WITH (Variable __ARGS__){Variable
+#define WITH (Variable __ARGS__ = Variable()){Variable
 #define FSTART ;
 #define FEND ;}
 #define RETURN ;return;

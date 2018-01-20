@@ -1,19 +1,30 @@
 #include <iostream>
 
 class Print {
+	std::string destination;
 public:
-	Print() {}
+	Print(char* dest) : destination(dest) {}
 
 	void operator= (Variable item) {
-		if (item.getType() == "word") {
-			turtle_draw_label(item.getWord());
-			return;
+		if (destination == "console") {
+			std::cout << item;
 		}
-		turtle_draw_label(item.getSentenceAsString());
+		else if (destination == "bitmap") {
+			if (item.getType() == "word") {
+				turtle_draw_label(item.getWord());
+				return;
+			}
+			turtle_draw_label(item.getSentenceAsString());
+		}
 	}
 
 	void operator= (char* string) {
-		turtle_draw_label(string);
+		if (destination == "console") {
+			std::cout << string;
+		}
+		else {
+			turtle_draw_label(string);
+		}
 	}
 
 };
