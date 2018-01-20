@@ -100,6 +100,24 @@ public:
 		list = newList;
 	}
 
+	std::vector<Variable>::iterator begin() {
+		if (type == "array") {
+			return array.begin();
+		}
+		if (type == "list") {
+			return list.begin();
+		}
+	}
+
+	std::vector<Variable>::iterator end() {
+		if (type == "array") {
+			return array.end();
+		}
+		if (type == "list") {
+			return list.end();
+		}
+	}
+
 	Variable& Variable::operator= (Variable &v) {
 		if (v.getType().std::string::compare("number") == 0) {
 			this -> number = v.getNumber();
@@ -476,6 +494,10 @@ std::ostream& operator<<(std::ostream& os, Variable v){
 	else if (v.getType() == "list") {
 		for (int i = 0; i < v.getList().size(); i++)
 			os << v.getList()[i] << ' ';
+	}
+	else if (v.getType() == "array") {
+		for (int i = 0; i < v.getArray().size(); i++)
+			os << v.getArray()[i] << ' ';
 	}
 	return os;
 }
