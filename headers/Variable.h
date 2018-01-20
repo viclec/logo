@@ -278,8 +278,9 @@ public:
 	}
 
 	Variable& operator, (Variable& item) {
-		if (state == "insertedList")
+		if (type == "list" && state == "insertedList") {
 			list.clear();
+		}
 		state = "insertedItem";
 		this->list.push_back(item);
 		return *this;
@@ -289,11 +290,6 @@ public:
 		this->list = v.getList();
 		this -> state = "insertedList";
 		this->list.insert(this ->list.begin(), v);
-	
-		// to ka8arizoume gt pername by reference k meta menoun sto list skoupidia an exei 8ema to vgazoume
-		/*for (int i = 2; (i < this -> list.size()); i++) {
-			this->list[i].list.clear();
-		}*/
 		
 		return *this;
 	}
