@@ -33,9 +33,9 @@ vector<Statement> statements;
 #define SETITEM(...) setItem<int>(__VA_ARGS__);	//TODO
 
 /*LIST ARGUMENTS*/
-//#define ARG(i) (args.getList()[i-1].getType().std::string::compare("number")==0)?args.getList()[i-1].getNumber():23;
+#define ARG(i) (args.getList()[i-1].getType().std::string::compare("number")==0)?args.getList()[i-1].getNumber() : args.getList()[i-1];
 //#define ARG(i) args.getList()[i-1];
-#define ARG(i) args.getList()[i-1].getNumber();
+//#define ARG(i) args.getList()[i-1].getNumber();
 
 /*BOOL CONSTANTS*/
 #define TRUE true
@@ -48,7 +48,7 @@ vector<Statement> statements;
 #define PRODUCT(...) Product<Variable>(__VA_ARGS__)
 #define QUOTIENT(...) Quotient<Variable>(__VA_ARGS__)
 #define MODULO(...) Modulo<Variable>(__VA_ARGS__)
-#define ASSIGN 
+#define ASSIGN ;
 
 #define __NL__ ;
 
@@ -68,8 +68,8 @@ vector<Statement> statements;
 #define REPCOUNT Variable("number")=statements.back().getRepCount()
 
 /*FOREACH*/
-#define FOREACH ;statements.push_back(Statement("foreach", __LINE__);  for(auto &i :	//TODO
-#define ELEM	statements.back().getCurrentElement();
+#define FOREACH ;statements.push_back(Statement("foreach", __LINE__));  for(auto &i :	//TODO
+#define ELEM i
 
 /*SHOW*/
 #define SHOW cout << 
@@ -96,18 +96,18 @@ vector<Statement> statements;
 #define PRINT ;Print()=
 
 /*TURTLE MOVEMENT*/
-#define SETPENCOLOR Move("setPenColor")=
-#define SETSCREENCOLOR Move("screenColor")=
-#define SETPENSIZE Move("setPenSize")=
-#define PENDOWN pen_down();
-#define PENUP pen_up();
+#define SETPENCOLOR ;Move("setPenColor")=
+#define SETSCREENCOLOR ;Move("screenColor")=
+#define SETPENSIZE ;Move("setPenSize")=
+#define PENDOWN ;pen_down();
+#define PENUP ;pen_up();
 
 /*FUNCTIONS*/
 //#define TO ;Function(
 #define TO ;void
 #define WITH (Variable args){
 #define FSTART ;
-#define FEND }
+#define FEND ;}
 #define RETURN ;return;
 #define CALL ;
 
