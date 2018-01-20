@@ -74,17 +74,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Array.h" />
-    <ClInclude Include="Function.h" />
+    <ClInclude Include="headers\Function.h" />
+    <ClInclude Include="headers\Move.h" />
+    <ClInclude Include="headers\Print.h" />
+    <ClInclude Include="headers\Statement.h" />
+    <ClInclude Include="headers\Variable.h" />
     <ClInclude Include="LOGO.h" />
     <ClInclude Include="GUI_demo\hy352_gui.h" />
-    <ClInclude Include="list.h" />
-    <ClInclude Include="move.h" />
-    <ClInclude Include="Print.h" />
-    <ClInclude Include="Sentence.h" />
-    <ClInclude Include="statement.h" />
-    <ClInclude Include="tempalteVariable.h" />
-    <ClInclude Include="variable.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="GUI_demo\pirulen rg.ttf" />

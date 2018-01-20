@@ -5,16 +5,13 @@
 #include <vector>
 #include <string>
 #include <assert.h>
-#include "./variable.h"
 #include "./GUI_demo/hy352_gui.h"
-#include "./Function.h"
-#include "./statement.h"
-#include "./Print.h"
-#include "./move.h"
-#include "./list.h"
+#include "./headers/Variable.h"
+#include "./headers/Statement.h"
+#include "./headers/Print.h"
+#include "./headers/Move.h"
 using namespace ::std;
 
-string statementType;
 vector<Statement> statements;
 
 /*VARIABLES*/
