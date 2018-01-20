@@ -18,6 +18,10 @@ public:
 		return repcount;
 	}
 
+	std::string getType(void) {
+		return type;
+	}
+
 	Variable getCurrentElement(void) {
 		assert(repcount <= list.getList().size());
 		return list.getList()[repcount];
