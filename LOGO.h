@@ -29,7 +29,7 @@ vector<Statement> statements;
 #define SETITEM(...) setItem<int>(__VA_ARGS__)	//TODO
 
 /*LIST ARGUMENTS*/
-#define ARG(i) (args.getList()[i-1].getType().std::string::compare("number")==0)?args.getList()[i-1].getNumber() : args.getList()[i-1];
+#define ARG(i) (__ARGS__.getList()[i-1].getType().std::string::compare("number")==0)?__ARGS__.getList()[i-1].getNumber() : __ARGS__.getList()[i-1];
 //#define ARG(i) args.getList()[i-1];
 //#define ARG(i) args.getList()[i-1].getNumber();
 
@@ -98,7 +98,7 @@ vector<Statement> statements;
 
 /*FUNCTIONS*/
 #define TO ;void
-#define WITH (Variable args){
+#define WITH (Variable __ARGS__){Variable
 #define FSTART ;
 #define FEND ;}
 #define RETURN ;return;
