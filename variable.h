@@ -10,14 +10,15 @@ protected:
 	std::vector<Variable> list;
 	std::vector<Variable> array;
 	std::string type;
+	std::string state;
 	int arraySize;
 public:
 	bool isValid = 1;
 	Variable() {};
 	Variable(char* type) : type(std::string(type)) {};
-	Variable(double number) : number(number) {};
-	Variable(int number) : number(number) {};
-	Variable(bool boolean) : boolean(boolean) {};
+	Variable(double number) : number(number), type("number") {};
+	Variable(int number) : number(number), type("number") {};
+	Variable(bool boolean) : boolean(boolean), type("number") {};
 
 	bool operator==(char* string) {
 		return (strcmp(this->word, string) == 0 && this->word != NULL);
@@ -125,6 +126,10 @@ public:
 		}
 		else if (v.getType().std::string::compare("word") == 0) {
 			this->word = v.getWord();
+			this->type = v.getType();
+		}
+		else if (v.getType().std::string::compare("list") == 0) {
+			this->list = v.getList();
 			this->type = v.getType();
 		}
 		else {
@@ -238,6 +243,10 @@ public:
 		return number;
 	}
 
+	std::string getState() {
+		return state;
+	}
+
 	std::string getType() {
 		return type;
 	}
@@ -301,12 +310,16 @@ public:
 	}
 
 	Variable& operator, (Variable& item) {
+		if (state == "insertedList")	//Intended to solve list with previous items, when list is the leftmost item
+			list.clear();	//Intended to solve list with previous items, when list is the leftmost item
+		state = "insertedItem";	//Intended to solve list with previous items, when list is the leftmost item
 		this->list.push_back(item);
 		return *this;
 	}
 
 	Variable& operator[](Variable& v) {
-		this -> list = v.getList();
+		this->list = v.getList();
+		this -> state = "insertedList";	//Intended to solve list with previous items, when list is the leftmost item
 		this->list.insert(this ->list.begin(), v);
 	
 		// to ka8arizoume gt pername by reference k meta menoun sto list skoupidia an exei 8ema to vgazoume
