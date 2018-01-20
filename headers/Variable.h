@@ -1,7 +1,7 @@
 #ifndef __VARIABLE__
 #define __VARIABLE__
 
-class Variable {	//TODO check class templates
+class Variable {
 protected:
 	char* word;
 	double number;
@@ -19,6 +19,79 @@ public:
 	Variable(double number) : number(number), type("number") {};
 	Variable(int number) : number(number), type("number") {};
 	Variable(bool boolean) : boolean(boolean), type("number") {};
+
+
+
+	double getNumber() {
+		return number;
+	}
+
+	std::string getState() {
+		return state;
+	}
+
+	std::string getType() {
+		return type;
+	}
+
+	std::vector<Variable> getArray() {
+		return array;
+	}
+
+	std::vector<char*> getSentence() {
+		return sentence;
+	}
+
+	char* getSentenceAsString() {
+		int i;
+		char result[1024];	//TODO malloc + realloc 
+
+		strcpy(result, sentence[sentence.size() - 1]);
+
+		for (i = sentence.size() - 2; i >= 0; i--) {
+			strcat(result, sentence[i]);
+		}
+
+		return result;
+	}
+
+	char* getWord() {
+		return word;
+	}
+
+	bool hasType() {
+		return type != "";
+	}
+
+	bool getBoolean() {
+		return boolean;
+	}
+
+	std::vector<Variable> getList() {
+		return list;
+	}
+
+	void setList(std::vector<Variable> newList) {
+		list = newList;
+	}
+
+	std::vector<Variable>::iterator begin() {
+		if (type == "array") {
+			return array.begin();
+		}
+		if (type == "list") {
+			return list.begin();
+		}
+	}
+
+	std::vector<Variable>::iterator end() {
+		if (type == "array") {
+			return array.end();
+		}
+		if (type == "list") {
+			return list.end();
+		}
+	}
 
 	bool operator==(char* string) {
 		return (strcmp(this->word, string) == 0 && this->word != NULL);
@@ -97,28 +170,6 @@ public:
 		return (strcmp(word, this->word) > 0 && word != NULL);
 	}
 
-	void setList(std::vector<Variable> newList) {
-		list = newList;
-	}
-
-	std::vector<Variable>::iterator begin() {
-		if (type == "array") {
-			return array.begin();
-		}
-		if (type == "list") {
-			return list.begin();
-		}
-	}
-
-	std::vector<Variable>::iterator end() {
-		if (type == "array") {
-			return array.end();
-		}
-		if (type == "list") {
-			return list.end();
-		}
-	}
-
 	Variable& Variable::operator= (Variable &v) {
 		if (v.getType().std::string::compare("number") == 0) {
 			this -> number = v.getNumber();
@@ -138,15 +189,6 @@ public:
 		return *this;
 	}
 
-	/*
-	template <Array Arr>
-	Variable& Variable::operator= (Arr v) {
-	this->list = v.getArray();
-		return *this;
-	}
-	*/
-
-
 	Variable& Variable::operator= (Variable* v) {
 		int iterator = 0;
 		Variable* tmp = &v[iterator];
@@ -160,10 +202,6 @@ public:
 	Variable& operator= (std::vector<Variable> array) {
 		return *this;
 	}
-
-	//Variable& Variable::operator= (List &l) {
-	//	this->list = l;
-	//}
 
 	Variable& Variable::operator= (char* a) {
 		this->word = a;
@@ -239,87 +277,17 @@ public:
 		return *this;
 	}
 
-	double getNumber() {
-		return number;
-	}
-
-	std::string getState() {
-		return state;
-	}
-
-	std::string getType() {
-		return type;
-	}
-
-	std::vector<Variable> getArray() {
-		return array;
-	}
-
-	std::vector<char*> getSentence() {
-		return sentence;
-	}
-
-	char* getSentenceAsString() {	//TODO return string 
-									/*
-									char* result;
-		int i, j;
-		for (i = 0, result = (char*)calloc(1, strlen(sentence[i])); i < sentence.size(); i++, result = (char*)realloc(result, strlen(sentence[i]))) {
-			for (j = 0; j < strlen(sentence[i]); j++) {	
-				result[j+i*j] = sentence[i][j];
-			}
-		}
-
-		std::cout << result;
-
-		return result;
-
-		char* result;
-		int i = getSentence().size();
-		while (i != 0) {
-			strcat(result, getSentence()[--i]);
-		}
-		return result;
-		*/
-
-		int i;
-		char result[1024];	//TODO malloc + realloc 
-
-		strcpy(result, sentence[sentence.size() - 1]);
-
-		for (i = sentence.size()-2; i >= 0; i--) {
-			strcat(result, sentence[i]);
-		}
-
-		return result;
-	}
-
-	char* getWord() {
-		return word;
-	}
-
-	bool hasType() {
-		return type != "";
-	}
-
-	bool getBoolean() {
-		return boolean;
-	}
-
-	std::vector<Variable> getList() {
-		return list;
-	}
-
 	Variable& operator, (Variable& item) {
-		if (state == "insertedList")	//Intended to solve list with previous items, when list is the leftmost item
-			list.clear();	//Intended to solve list with previous items, when list is the leftmost item
-		state = "insertedItem";	//Intended to solve list with previous items, when list is the leftmost item
+		if (state == "insertedList")
+			list.clear();
+		state = "insertedItem";
 		this->list.push_back(item);
 		return *this;
 	}
 
 	Variable& operator[](Variable& v) {
 		this->list = v.getList();
-		this -> state = "insertedList";	//Intended to solve list with previous items, when list is the leftmost item
+		this -> state = "insertedList";
 		this->list.insert(this ->list.begin(), v);
 	
 		// to ka8arizoume gt pername by reference k meta menoun sto list skoupidia an exei 8ema to vgazoume
