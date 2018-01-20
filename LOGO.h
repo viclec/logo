@@ -29,8 +29,8 @@ vector<Statement> statements;
 #define SENTENCE(...) Sentence<Variable>(__VA_ARGS__)
 
 /*ARRAY ITEMS*/
-#define ITEM(...) getItem<int>(__VA_ARGS__);
-#define SETITEM(...) setItem<int>(__VA_ARGS__);	//TODO
+#define ITEM(...) getItem<int>(__VA_ARGS__)
+#define SETITEM(...) setItem<int>(__VA_ARGS__)	//TODO
 
 /*LIST ARGUMENTS*/
 #define ARG(i) (args.getList()[i-1].getType().std::string::compare("number")==0)?args.getList()[i-1].getNumber() : args.getList()[i-1];
@@ -58,8 +58,8 @@ vector<Statement> statements;
 
 /*IF/ELIF STATEMENTS*/
 #define IF ;statements.push_back(Statement("if", __LINE__)); if(
-#define ELIF } else if(
-#define ELSE } else if(true){
+#define ELIF ;} else if(
+#define ELSE ;} else if(true){
 
 /*REPEAT WHILE*/
 #define REPEAT ;statements.push_back(Statement("repeat", __LINE__)); for(statements.back().initRepCount();
