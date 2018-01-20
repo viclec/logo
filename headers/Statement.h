@@ -3,7 +3,7 @@
 class Statement{
 private:
 	std::string type;
-	int repcount;
+	unsigned int repcount;
 	int lineNumber;
 	int id;
 	static int count;

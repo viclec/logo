@@ -46,10 +46,10 @@ public:
 		int i;
 		char result[1024];	//TODO malloc + realloc 
 
-		strcpy(result, sentence[sentence.size() - 1]);
+		strcpy_s(result, sentence[sentence.size() - 1]);
 
 		for (i = sentence.size() - 2; i >= 0; i--) {
-			strcat(result, sentence[i]);
+			strcat_s(result, sentence[i]);
 		}
 
 		return result;
@@ -314,6 +314,7 @@ public:
 			return (this->word != v.getWord());
 		}
 		assert(0);
+		return false;
 	}
 
 	bool operator> (Variable v) {
@@ -473,11 +474,11 @@ std::ostream& operator<<(std::ostream& os, Variable v){
 		os << v.getNumber();
 	}
 	else if (v.getType() == "list") {
-		for (int i = 0; i < v.getList().size(); i++)
+		for (unsigned int i = 0; i < v.getList().size(); i++)
 			os << v.getList()[i] << ' ';
 	}
 	else if (v.getType() == "array") {
-		for (int i = 0; i < v.getArray().size(); i++)
+		for (unsigned int i = 0; i < v.getArray().size(); i++)
 			os << v.getArray()[i] << ' ';
 	}
 	return os;
